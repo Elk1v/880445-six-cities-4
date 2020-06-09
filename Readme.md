@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Matey Ilkiv](https://up.htmlacademy.ru/react/4/user/880445).
-* Наставник: [Максим Чеченёв] (https://htmlacademy.ru/profile/id1507573).
+* Наставник: [Максим Чеченёв](https://htmlacademy.ru/profile/id1507573).
 
 ---
 
