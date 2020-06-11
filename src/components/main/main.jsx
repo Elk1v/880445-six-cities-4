@@ -1,7 +1,7 @@
 import React from "react";
+import Pt from "prop-types";
 
 const Main = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {offersCount, offersName} = props;
 
   const getCardMarkup = (offersNameArr) => {
@@ -276,6 +276,11 @@ const Main = (props) => {
       </main>
     </div>
   );
+};
+
+Main.propTypes = {
+  offersCount: Pt.number.isRequired,
+  offersName: Pt.array.isRequired,
 };
 
 export default Main;
