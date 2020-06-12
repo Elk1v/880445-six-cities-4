@@ -1,5 +1,5 @@
 import React from "react";
-import Pt from "prop-types";
+import PropTypes from "prop-types";
 
 import Main from "../main/main.jsx";
 
@@ -15,8 +15,8 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  offersCount: Pt.number.isRequired,
-  offersName: Pt.array.isRequired,
+  offersCount: PropTypes.number.isRequired,
+  offersName: PropTypes.array.isRequired,
 };
 
 export default App;

@@ -1,13 +1,13 @@
 import React from "react";
-import Pt from "prop-types";
+import PropTypes from "prop-types";
 
 const Main = (props) => {
   const {offersCount, offersName} = props;
 
-  const getCardMarkup = (offersNameArr) => {
-    return offersNameArr.map((name) => {
+  const renderCard = (offersNameArr) => {
+    return offersNameArr.map((name, index) => {
       return (
-        <article className="cities__place-card place-card" key={name}>
+        <article className="cities__place-card place-card" key={name + index}>
           <div className="place-card__mark">
             <span>Premium</span>
           </div>
@@ -136,7 +136,7 @@ const Main = (props) => {
         */}
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {getCardMarkup(offersName)}
+                {renderCard(offersName)}
                 {/*
                 <article className="cities__place-card place-card">
                   <div className="cities__image-wrapper place-card__image-wrapper">
@@ -279,8 +279,8 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  offersCount: Pt.number.isRequired,
-  offersName: Pt.array.isRequired,
+  offersCount: PropTypes.number.isRequired,
+  offersName: PropTypes.array.isRequired,
 };
 
 export default Main;
