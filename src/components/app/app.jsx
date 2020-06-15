@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import Main from "../main/main.jsx";
 
+const btnClickHandler = () => {};
+
 const App = (props) => {
   const {offersCount, offersName} = props;
 
@@ -10,6 +12,8 @@ const App = (props) => {
     <Main
       offersCount = {offersCount}
       offersName = {offersName}
+
+      onBtnClickHandler = {btnClickHandler}
     />
   );
 };

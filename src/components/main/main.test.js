@@ -17,6 +17,7 @@ it(`Should Main component render correctly`, () => {
       <Main
         offersCount = {Options.OFFERS_COUNT}
         offersName = {Options.OFFERS_NAME}
+        onTitleClickHandler = {() => {}}
       />
   ).toJSON();
 

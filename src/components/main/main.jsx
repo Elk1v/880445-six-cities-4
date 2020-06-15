@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Main = (props) => {
-  const {offersCount, offersName} = props;
+  const {offersCount, offersName, onTitleClickHandler} = props;
 
-  const renderCard = (offersNameArr) => {
+  const renderCard = (offersNameArr, onBtnClickHandler) => {
     return offersNameArr.map((name, index) => {
       return (
         <article className="cities__place-card place-card" key={name + index}>
@@ -36,7 +36,7 @@ const Main = (props) => {
               </div>
             </div>
             <h2 className="place-card__name">
-              <a href="#">{name}</a>
+              <a onClick={onBtnClickHandler} href="#">{name}</a>
             </h2>
             <p className="place-card__type">Apartment</p>
           </div>
@@ -136,7 +136,7 @@ const Main = (props) => {
         */}
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {renderCard(offersName)}
+                {renderCard(offersName, onTitleClickHandler)}
                 {/*
                 <article className="cities__place-card place-card">
                   <div className="cities__image-wrapper place-card__image-wrapper">
@@ -281,6 +281,7 @@ const Main = (props) => {
 Main.propTypes = {
   offersCount: PropTypes.number.isRequired,
   offersName: PropTypes.array.isRequired,
+  onTitleClickHandler: PropTypes.func.isRequired,
 };
 
 export default Main;
