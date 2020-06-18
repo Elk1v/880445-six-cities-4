@@ -1,0 +1,38 @@
+export default [
+  {
+    title: `Beautiful & luxurious apartment at great location`,
+    type: `Apartment`,
+    rating: `20%`,
+    isBookmarked: false,
+    isPremium: true,
+    price: 180,
+    image: `img/apartment-01.jpg`,
+  },
+  {
+    title: `Wood and stone place`,
+    type: `Room`,
+    rating: `80%`,
+    isBookmarked: false,
+    isPremium: false,
+    price: 180,
+    image: `img/room.jpg`,
+  },
+  {
+    title: `Nice, cozy, warm big bed apartment`,
+    type: `House`,
+    rating: `40%`,
+    isBookmarked: true,
+    isPremium: false,
+    price: 180,
+    image: `img/apartment-02.jpg`,
+  },
+  {
+    title: `Canal View Prinsengracht`,
+    type: `Hotel`,
+    rating: `60%`,
+    isBookmarked: false,
+    isPremium: true,
+    price: 180,
+    image: `img/apartment-03.jpg`,
+  },
+];
