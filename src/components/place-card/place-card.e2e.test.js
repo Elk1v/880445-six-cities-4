@@ -39,7 +39,6 @@ it(`Should hover handler receive info about offer`, () => {
       <PlaceCard
         key={offer.id}
         offer={offer}
-        onTitleClick={onTitleClick}
       />
   );
 
