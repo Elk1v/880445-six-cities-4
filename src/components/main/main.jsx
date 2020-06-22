@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PlacesList from "../places-list/places-list.jsx";
 
 const Main = (props) => {
-  const {offersCount, offers, onBtnClick} = props;
+  const {offersCount, offers, onTitleClick} = props;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -97,7 +97,7 @@ const Main = (props) => {
               <div className="cities__places-list places__list tabs__content">
                 <PlacesList
                   offers={offers}
-                  onBtnClick={onBtnClick}
+                  onTitleClick={onTitleClick}
                 />
               </div>
             </section>
@@ -113,7 +113,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   offersCount: PropTypes.number.isRequired,
-  onBtnClick: PropTypes.func.isRequired,
+  onTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.array.isRequired,
 };
 

@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import PlacesList from "../places-list/places-list";
 
 const PlaceCard = (props) => {
-  const {offer, onCardHover, onBtnClick} = props;
+  const {offer, onCardHover, onTitleClick} = props;
   const {id, title, type, rating, isPremium, price, image} = offer;
 
   return (
@@ -41,7 +42,7 @@ const PlaceCard = (props) => {
         </div>
 
         <h2 className="place-card__name">
-          <a onClick={onBtnClick} href="#">{title}</a>
+          <a onClick={onTitleClick} href="#">{title}</a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -50,7 +51,7 @@ const PlaceCard = (props) => {
 };
 
 PlaceCard.propTypes = {
-  onBtnClick: PropTypes.func.isRequired,
+  onTitleClick: PropTypes.func.isRequired,
   onCardHover: PropTypes.func.isRequired,
   offer: PropTypes.shape({
     id: PropTypes.isRequired,

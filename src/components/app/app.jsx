@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 
 import Main from "../main/main.jsx";
 
-const btnClickHandler = () => {};
+const titleClickHandler = () => {
+  return null;
+};
 
 const App = (props) => {
   const {offers, offersCount} = props;
@@ -12,7 +14,7 @@ const App = (props) => {
     <Main
       offers={offers}
       offersCount={offersCount}
-      onBtnClick={btnClickHandler}
+      onTitleClick={titleClickHandler}
     />
   );
 };

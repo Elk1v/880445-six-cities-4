@@ -14,15 +14,14 @@ class PlacesList extends PureComponent {
   }
 
   render() {
-    const {offers, onBtnClick} = this.props;
-    console.log(this.state);
+    const {offers, onTitleClick} = this.props;
     return (
       offers.map((offer) => {
         return (
           <PlaceCard
             key={offer.id}
             offer={offer}
-            onBtnClick={onBtnClick}
+            onTitleClick={onTitleClick}
             onCardHover={this.hoverHandler}
           />
         );
@@ -39,7 +38,7 @@ class PlacesList extends PureComponent {
 }
 
 PlacesList.propTypes = {
-  onBtnClick: PropTypes.func.isRequired,
+  onTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.array.isRequired,
 };
 
