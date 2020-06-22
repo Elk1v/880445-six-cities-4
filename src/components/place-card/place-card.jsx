@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PlacesList from "../places-list/places-list";
 
 const PlaceCard = (props) => {
   const {offer, onCardHover, onTitleClick} = props;
