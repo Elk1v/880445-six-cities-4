@@ -17,14 +17,17 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
+const onTitleClick = jest.fn();
+const onCardHover = jest.fn();
+
 it(`Should title click be passed`, () => {
-  const onTitleClick = jest.fn();
 
   const placeCard = shallow(
       <PlaceCard
         key={offer.id}
         offer={offer}
         onTitleClick={onTitleClick}
+        onCardHover={onCardHover}
       />
   );
 
@@ -39,10 +42,12 @@ it(`Should hover handler receive info about offer`, () => {
       <PlaceCard
         key={offer.id}
         offer={offer}
+        onTitleClick={onTitleClick}
+        onCardHover={onCardHover}
       />
   );
 
   placeCard.props().onMouseOver();
-  expect(placeCard.props().includedProp).to.equal(offer);
+  expect(placeCard.prop(`offer`)).toEqual(offer);
 });
 

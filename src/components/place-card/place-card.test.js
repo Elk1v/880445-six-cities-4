@@ -17,6 +17,7 @@ it(`Should PlaceCard component render correctly`, () => {
       <PlaceCard
         offer={offer}
         onTitleClick={() => {}}
+        onCardHover={() => {}}
       />
   ).toJSON();
 
