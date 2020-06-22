@@ -6,21 +6,20 @@ import Main from "../main/main.jsx";
 const btnClickHandler = () => {};
 
 const App = (props) => {
-  const {offersCount, offersName} = props;
+  const {offers, offersCount} = props;
 
   return (
     <Main
-      offersCount = {offersCount}
-      offersName = {offersName}
-
-      onBtnClickHandler = {btnClickHandler}
+      offers={offers}
+      offersCount={offersCount}
+      onBtnClick={btnClickHandler}
     />
   );
 };
 
 App.propTypes = {
+  offers: PropTypes.array.isRequired,
   offersCount: PropTypes.number.isRequired,
-  offersName: PropTypes.array.isRequired,
 };
 
 export default App;
