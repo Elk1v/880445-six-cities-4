@@ -1,13 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "../main/main.jsx";
-import {offers, Options} from "../../mock/test-mocks";
+import PlacesList from "./places-list";
+import {offers} from "../../mock/test-mocks";
 
-it(`Should Main component render correctly`, () => {
+it(`Should PlaceList component render correcrly`, () => {
   const tree = renderer.create(
-      <Main
+      <PlacesList
         offers={offers}
-        offersCount={Options.OFFERS_COUNT}
         onTitleClick={() => {}}
       />
   ).toJSON();
