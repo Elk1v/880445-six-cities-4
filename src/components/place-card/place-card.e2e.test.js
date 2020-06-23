@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
+import Enzyme, {shallow, mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import PlaceCard from "./place-card.jsx";
 
@@ -38,7 +38,7 @@ it(`Should title click be passed`, () => {
 });
 
 it(`Should hover handler receive info about offer`, () => {
-  const placeCard = shallow(
+  const placeCard = mount(
       <PlaceCard
         key={offer.id}
         offer={offer}
@@ -47,7 +47,7 @@ it(`Should hover handler receive info about offer`, () => {
       />
   );
 
-  placeCard.props().onMouseOver();
+  placeCard.props().onCardHover();
   expect(placeCard.prop(`offer`)).toEqual(offer);
 });
 
