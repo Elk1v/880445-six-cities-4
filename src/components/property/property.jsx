@@ -1,8 +1,48 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Property = () => {
+const Property = (props) => {
+  const {offer} = props;
+  const {id, title, features, rating, isPremium, price, images, inside, host} = offer;
+  const {type, bedrooms, adults} = features;
+  const {name, avatar, text} = host;
+
+  const calcRatingInPercent = (rate) => {
+    return Math.round(rate * 100 / 5);
+  };
+
+  const renderImages = (pictures) => {
+    return pictures.map((picture, i) => {
+      return (
+        <div className="property__image-wrapper" key={picture + i}>
+          <img className="property__image" src={picture} alt="Photo studio" />
+        </div>
+      );
+    });
+  };
+
+  const renderInside = (insideItems) => {
+    return insideItems.map((insideItem, i) => {
+      return (
+        <li className="property__inside-item" key={insideItem + i}>
+          {insideItem}
+        </li>
+      );
+    });
+  };
+
+  const renderText = (textItems) => {
+    return textItems.map((textItem, i) => {
+      return (
+        <p className="property__text" key={textItem + i}>
+          {textItem}
+        </p>
+      );
+    });
+  };
+
   return (
-    <div>
+    <div key={id}>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,34 +78,19 @@ const Property = () => {
           <section className="property">
             <div className="property__gallery-container container">
               <div className="property__gallery">
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/room.jpg" alt="Photo studio" />
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio" />
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio" />
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/studio-01.jpg" alt="Photo studio" />
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-                </div>
+                {renderImages(images)}
               </div>
             </div>
             <div className="property__container container">
               <div className="property__wrapper">
-                <div className="property__mark">
-                  <span>Premium</span>
-                </div>
+                {isPremium && (
+                  <div className="property__mark">
+                    <span>Premium</span>
+                  </div>
+                )}
                 <div className="property__name-wrapper">
                   <h1 className="property__name">
-                Beautiful &amp; luxurious studio at great location
+                    {title}
                   </h1>
                   <button className="property__bookmark-button button" type="button">
                     <svg className="property__bookmark-icon" width={31} height={33}>
@@ -76,78 +101,44 @@ const Property = () => {
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">
-                    <span style={{width: `80%`}} />
+                    <span style={{width: `${calcRatingInPercent(rating)}%`}} />
                     <span className="visually-hidden">Rating</span>
                   </div>
-                  <span className="property__rating-value rating__value">4.8</span>
+                  <span className="property__rating-value rating__value">{rating}</span>
                 </div>
                 <ul className="property__features">
                   <li className="property__feature property__feature--entire">
-                Apartment
+                    {type}
                   </li>
                   <li className="property__feature property__feature--bedrooms">
-                3 Bedrooms
+                    {bedrooms} Bedrooms
                   </li>
                   <li className="property__feature property__feature--adults">
-                Max 4 adults
+                Max {adults} adults
                   </li>
                 </ul>
                 <div className="property__price">
-                  <b className="property__price-value">€120</b>
+                  <b className="property__price-value">€{price}</b>
                   <span className="property__price-text">&nbsp;night</span>
                 </div>
                 <div className="property__inside">
-                  <h2 className="property__inside-title">What's inside</h2>
+                  <h2 className="property__inside-title">What`s inside</h2>
                   <ul className="property__inside-list">
-                    <li className="property__inside-item">
-                  Wi-Fi
-                    </li>
-                    <li className="property__inside-item">
-                  Washing machine
-                    </li>
-                    <li className="property__inside-item">
-                  Towels
-                    </li>
-                    <li className="property__inside-item">
-                  Heating
-                    </li>
-                    <li className="property__inside-item">
-                  Coffee machine
-                    </li>
-                    <li className="property__inside-item">
-                  Baby seat
-                    </li>
-                    <li className="property__inside-item">
-                  Kitchen
-                    </li>
-                    <li className="property__inside-item">
-                  Dishwasher
-                    </li>
-                    <li className="property__inside-item">
-                  Cabel TV
-                    </li>
-                    <li className="property__inside-item">
-                  Fridge
-                    </li>
+                    {renderInside(inside)}
                   </ul>
                 </div>
                 <div className="property__host">
                   <h2 className="property__host-title">Meet the host</h2>
                   <div className="property__host-user user">
                     <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                      <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" width={74} height={74} alt="Host avatar" />
+                      <img className="property__avatar user__avatar" src={avatar} width={74} height={74} alt="Host avatar" />
                     </div>
                     <span className="property__user-name">
-                  Angelina
+                      {name}
                     </span>
                   </div>
                   <div className="property__description">
-                    <p className="property__text">
-                  A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                    </p>
-                    <p className="property__text">
-                  An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
-                    </p>
+                    {renderText(text)}
                   </div>
                 </div>
                 <section className="property__reviews reviews">
@@ -328,6 +319,28 @@ const Property = () => {
     </div>
 
   );
+};
+
+Property.propTypes = {
+  offer: PropTypes.shape({
+    id: PropTypes.isRequired,
+    title: PropTypes.string.isRequired,
+    features: PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      bedrooms: PropTypes.number.isRequired,
+      adults: PropTypes.number.isRequired,
+    }).isRequired,
+    rating: PropTypes.number.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    price: PropTypes.number.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    inside: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      text: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default Property;

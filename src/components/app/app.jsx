@@ -4,13 +4,12 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Main from "../main/main.jsx";
 import Property from "../property/property.jsx";
 
-const titleClickHandler = () => {
-  return null;
-};
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.titleClickHandler = this.titleClickHandler.bind(this);
   }
 
   _renderMain() {
@@ -19,24 +18,38 @@ class App extends PureComponent {
       <Main
         offers={offers}
         offersCount={offersCount}
-        onTitleClick={titleClickHandler}
+        onTitleClick={this.titleClickHandler}
+      />
+    );
+  }
+
+  _renderProperty() {
+    const {offers} = this.props;
+    return (
+      <Property
+        offer={offers[1]}
       />
     );
   }
 
   render() {
     return (
-      <BrowserRouter> 
+      <BrowserRouter>
         <Switch>
           <Route exact path="/">
             {this._renderMain()}
           </Route>
           <Route exact path="/property">
-            <Property />
+            {this._renderProperty()}
           </Route>
         </Switch>
       </BrowserRouter>
     );
+  }
+
+
+  titleClickHandler() {
+    return null;
   }
 }
 
