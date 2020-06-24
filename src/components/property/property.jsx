@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {calcRatingInPercent} from "../../utils/common";
 
 const Property = (props) => {
   const {offer} = props;
@@ -7,9 +8,6 @@ const Property = (props) => {
   const {type, bedrooms, adults} = features;
   const {name, avatar, text} = host;
 
-  const calcRatingInPercent = (rate) => {
-    return Math.round(rate * 100 / 5);
-  };
 
   const renderImages = (pictures) => {
     return pictures.map((picture, i) => {

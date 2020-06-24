@@ -9,6 +9,10 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.state = {
+      toShowPropertyCardId: `0`,
+    };
+
     this.titleClickHandler = this.titleClickHandler.bind(this);
   }
 
@@ -23,16 +27,19 @@ class App extends PureComponent {
     );
   }
 
-  _renderProperty() {
+  _renderProperty(cardId) {
     const {offers} = this.props;
     return (
       <Property
-        offer={offers[1]}
+        offer={offers.filter((offer) =>{
+          return offer.id === cardId;
+        })[0]}
       />
     );
   }
 
   render() {
+    const {toShowPropertyCardId} = this.state;
     return (
       <BrowserRouter>
         <Switch>
@@ -40,7 +47,7 @@ class App extends PureComponent {
             {this._renderMain()}
           </Route>
           <Route exact path="/property">
-            {this._renderProperty()}
+            {this._renderProperty(toShowPropertyCardId)}
           </Route>
         </Switch>
       </BrowserRouter>
@@ -48,8 +55,12 @@ class App extends PureComponent {
   }
 
 
-  titleClickHandler() {
-    return null;
+  titleClickHandler(evt) {
+    this.setState({
+      toShowPropertyCardId: evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`)
+    },
+    () => console.log(this.state)
+    );
   }
 }
 
