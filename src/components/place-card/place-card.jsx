@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 import {calcRatingInPercent} from "../../utils/common";
 
 const PlaceCard = (props) => {
@@ -43,7 +44,16 @@ const PlaceCard = (props) => {
         </div>
 
         <h2 className="place-card__name" onClick={(evt) => onTitleClick(evt)}>
-          <a href="#">{title}</a>
+          <Link
+            to={{
+              pathname: `/property`,
+              /*
+              hash: ``,
+              search: `${id}`,
+              */
+            }}>
+            {title}
+          </Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

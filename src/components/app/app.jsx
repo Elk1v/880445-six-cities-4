@@ -10,7 +10,7 @@ class App extends PureComponent {
     super(props);
 
     this.state = {
-      toShowPropertyCardId: `0`,
+      toShowPropertyCardId: `00`,
     };
 
     this.titleClickHandler = this.titleClickHandler.bind(this);
@@ -46,7 +46,7 @@ class App extends PureComponent {
           <Route exact path="/">
             {this._renderMain()}
           </Route>
-          <Route exact path="/property">
+          <Route path="/property">
             {this._renderProperty(toShowPropertyCardId)}
           </Route>
         </Switch>
@@ -58,8 +58,7 @@ class App extends PureComponent {
   titleClickHandler(evt) {
     this.setState({
       toShowPropertyCardId: evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`)
-    },
-    () => console.log(this.state)
+    }
     );
   }
 }

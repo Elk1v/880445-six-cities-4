@@ -1,7 +1,7 @@
 export default
 [
   {
-    id: `0`,
+    id: `00`,
     title: `Beautiful & luxurious apartment at great location`,
     features: {
       type: `Apartment`,
@@ -42,7 +42,7 @@ export default
   },
 
   {
-    id: `1`,
+    id: `01`,
     title: `Beautiful & luxurious apartment at great location`,
     features: {
       type: `Apartment`,
@@ -79,7 +79,7 @@ export default
   },
 
   {
-    id: `2`,
+    id: `02`,
     title: `Beautiful & luxurious apartment at great location`,
     features: {
       type: `Apartment`,
@@ -120,7 +120,7 @@ export default
   },
 
   {
-    id: `3`,
+    id: `03`,
     title: `Beautiful & luxurious apartment at great location`,
     features: {
       type: `Apartment`,
