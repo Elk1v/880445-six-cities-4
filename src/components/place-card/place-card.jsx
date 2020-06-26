@@ -1,12 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
+import {calcRatingInPercent} from "../../utils/common";
 
 const PlaceCard = (props) => {
   const {offer, onCardHover, onTitleClick} = props;
-  const {id, title, type, rating, isPremium, price, image} = offer;
+  const {id, title, features, rating, isPremium, price, images} = offer;
+  const {type} = features;
 
   return (
-    <article className="cities__place-card place-card" key={id} onMouseOver={(evt) => onCardHover(evt)} >
+    <article className="cities__place-card place-card" data-key={id} key={id} onMouseOver={(evt) => onCardHover(evt)} >
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
@@ -15,7 +18,7 @@ const PlaceCard = (props) => {
 
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={image} width={260} height={200} alt="Place image" />
+          <img className="place-card__image" src={images[0]} width={260} height={200} alt="Place image" />
         </a>
       </div>
 
@@ -35,13 +38,22 @@ const PlaceCard = (props) => {
 
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${rating}%`}} />
+            <span style={{width: `${calcRatingInPercent(rating)}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
 
-        <h2 className="place-card__name">
-          <a onClick={onTitleClick} href="#">{title}</a>
+        <h2 className="place-card__name" onClick={(evt) => onTitleClick(evt)}>
+          <Link
+            to={{
+              pathname: `/property`,
+              /*
+              hash: ``,
+              search: `${id}`,
+              */
+            }}>
+            {title}
+          </Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -55,11 +67,21 @@ PlaceCard.propTypes = {
   offer: PropTypes.shape({
     id: PropTypes.isRequired,
     title: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    features: PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      bedrooms: PropTypes.number.isRequired,
+      adults: PropTypes.number.isRequired,
+    }).isRequired,
     rating: PropTypes.number.isRequired,
     isPremium: PropTypes.bool.isRequired,
     price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    inside: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      text: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
