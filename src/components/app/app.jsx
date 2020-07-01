@@ -10,7 +10,7 @@ class App extends PureComponent {
     super(props);
 
     this.state = {
-      toShowPropertyCardId: `00`,
+      toShowPropertyCardId: 0,
     };
 
     this.titleClickHandler = this.titleClickHandler.bind(this);

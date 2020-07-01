@@ -1,14 +1,27 @@
 import React from "react";
 import Map from "../map/map.jsx";
 import renderer from "react-test-renderer";
-import {offers} from "../../mock/test-mocks";
+
+const coords = [
+  {
+    coords: [52.3909553943508, 4.85309666406198],
+  },
+  {
+    coords: [52.369553943508, 4.85309666406198],
+  },
+  {
+    coords: [52.3909553943508, 4.929309666406198],
+  },
+  {
+    coords: [52.3809553943508, 4.939309666406198],
+  },
+];
 
 it(`Map conponent renders correctly`, () => {
   const tree = renderer.create(
-      <Map offers={offers}/>, {
-        createNodeMock: () => {
-          return document.createElement(`div`);
-        }
+      <Map offers={coords}/>,
+      {
+        createNodeMock: () => document.createElement(`div`)
       }
   ).toJSON();
 

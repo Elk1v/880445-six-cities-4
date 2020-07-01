@@ -1,58 +1,46 @@
 import React, {PureComponent} from "react";
 import L from "leaflet";
-import styled from "styled-components";
 import PropTypes from "prop-types";
 import {MapProps} from "../../consts";
-
-
-export const Wrapper = styled.div`
-  width: ${(props) => {
-    return props.width;
-  }};
-
-  height: ${(props) => {
-    return props.height;
-  }}
-`;
+import {Map as LeafletMap, Marker, TileLayer} from 'react-leaflet';
 
 class Map extends PureComponent {
   constructor(props) {
     super(props);
   }
-
-  componentDidMount() {
+  render() {
     const {offers} = this.props;
-    const coords = offers.map((offer) =>{
-      return offer.coords;
-    });
-    const city = [52.38333, 4.9];
-    const icon = L.icon({
+    const center = [52.38333, 4.9];
+    const customIcon = L.icon({
       iconUrl: `img/pin.svg`,
       iconSize: MapProps.ICON_SIZE,
     });
 
-    this.map = L.map(`map`, {
-      center: city,
-      zoom: MapProps.ZOOM,
-      zoomControl: false,
-      marker: true,
-    });
+    return (
+      <LeafletMap
+        center={center}
+        zoom={MapProps.ZOOM}
+        zoomControl={true}
+        style={{width: 512, height: 674}}
+      >
+        <TileLayer
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          attribution={`&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`}
+        />
 
-    this.map.setView(city, MapProps.ZOOM);
-
-    L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
-      attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
-    }).addTo(this.map);
-
-    coords.forEach((coord) =>{
-      L.marker(coord, {icon}).addTo(this.map);
-    });
-  }
-
-  render() {
-    return <Wrapper width="512px" height="674px" id="map" />;
+        {offers.map((offer, i) => {
+          return (
+            <Marker key={offer.id + i}
+              position={offer.coords}
+              icon={customIcon}>
+            </Marker>
+          );
+        })}
+      </LeafletMap>
+    );
   }
 }
+
 
 Map.propTypes = {
   offers: PropTypes.array.isRequired,

@@ -65,7 +65,7 @@ PlaceCard.propTypes = {
   onTitleClick: PropTypes.func.isRequired,
   onCardHover: PropTypes.func.isRequired,
   offer: PropTypes.shape({
-    id: PropTypes.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     features: PropTypes.shape({
       type: PropTypes.string.isRequired,

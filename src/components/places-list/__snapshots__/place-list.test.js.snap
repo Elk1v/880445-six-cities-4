@@ -4,7 +4,7 @@ exports[`Should PlaceList component render correcrly 1`] = `
 Array [
   <article
     className="cities__place-card place-card"
-    data-key="00"
+    data-key={0}
     onMouseOver={[Function]}
   >
     <div
@@ -110,7 +110,7 @@ Array [
   </article>,
   <article
     className="cities__place-card place-card"
-    data-key="01"
+    data-key={1}
     onMouseOver={[Function]}
   >
     <div
@@ -209,7 +209,7 @@ Array [
   </article>,
   <article
     className="cities__place-card place-card"
-    data-key="02"
+    data-key={2}
     onMouseOver={[Function]}
   >
     <div
@@ -315,7 +315,7 @@ Array [
   </article>,
   <article
     className="cities__place-card place-card"
-    data-key="03"
+    data-key={3}
     onMouseOver={[Function]}
   >
     <div
