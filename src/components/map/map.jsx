@@ -28,9 +28,9 @@ class Map extends PureComponent {
           attribution={`&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`}
         />
 
-        {offers.map((offer, i) => {
+        {offers.map((offer) => {
           return (
-            <Marker key={offer.id + i}
+            <Marker key={offer.id}
               position={offer.coords}
               icon={customIcon}>
             </Marker>

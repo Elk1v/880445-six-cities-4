@@ -649,7 +649,7 @@ exports[`Should Main component render correctly 1`] = `
           <div
             style={
               Object {
-                "height": 526,
+                "height": 674,
                 "width": 512,
               }
             }
