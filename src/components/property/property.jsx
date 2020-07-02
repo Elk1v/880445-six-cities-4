@@ -321,7 +321,7 @@ const Property = (props) => {
 
 Property.propTypes = {
   offer: PropTypes.shape({
-    id: PropTypes.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     features: PropTypes.shape({
       type: PropTypes.string.isRequired,

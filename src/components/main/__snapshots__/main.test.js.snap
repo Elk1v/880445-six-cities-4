@@ -226,7 +226,7 @@ exports[`Should Main component render correctly 1`] = `
           >
             <article
               className="cities__place-card place-card"
-              data-key="00"
+              data-key={0}
               onMouseOver={[Function]}
             >
               <div
@@ -332,7 +332,7 @@ exports[`Should Main component render correctly 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
-              data-key="01"
+              data-key={1}
               onMouseOver={[Function]}
             >
               <div
@@ -431,7 +431,7 @@ exports[`Should Main component render correctly 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
-              data-key="02"
+              data-key={2}
               onMouseOver={[Function]}
             >
               <div
@@ -537,7 +537,7 @@ exports[`Should Main component render correctly 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
-              data-key="03"
+              data-key={3}
               onMouseOver={[Function]}
             >
               <div
@@ -646,8 +646,13 @@ exports[`Should Main component render correctly 1`] = `
         <div
           className="cities__right-section"
         >
-          <section
-            className="cities__map map"
+          <div
+            style={
+              Object {
+                "height": 674,
+                "width": 512,
+              }
+            }
           />
         </div>
       </div>

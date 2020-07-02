@@ -8,8 +8,10 @@ it(`Render App`, () => {
       <App
         offers={offers}
         offersCount={Options.OFFERS_COUNT}
-      />
-  ).toJSON();
+      />,
+      {createNodeMock: () => document.createElement(`div`)
+      })
+        .toJSON();
 
   expect(tree).toMatchSnapshot();
 });

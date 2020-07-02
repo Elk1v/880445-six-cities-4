@@ -12,8 +12,10 @@ it(`Should Main component render correctly`, () => {
           offersCount={Options.OFFERS_COUNT}
           onTitleClick={() => {}}
         />
-      </BrowserRouter>
-  ).toJSON();
+      </BrowserRouter>,
+      {createNodeMock: () => document.createElement(`div`)
+      })
+        .toJSON();
 
   expect(tree).toMatchSnapshot();
 });
