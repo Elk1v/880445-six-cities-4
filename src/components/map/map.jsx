@@ -1,8 +1,9 @@
 import React, {PureComponent} from "react";
 import L from "leaflet";
 import PropTypes from "prop-types";
-import {MapProps} from "../../consts";
 import {Map as LeafletMap, Marker, TileLayer} from 'react-leaflet';
+import {MapProps} from "Consts/consts";
+
 
 class Map extends PureComponent {
   constructor(props) {

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {calcRatingInPercent} from "../../utils/common";
+import {calcRatingInPercent} from "Utils/common";
+
 
 const Property = (props) => {
   const {offer} = props;

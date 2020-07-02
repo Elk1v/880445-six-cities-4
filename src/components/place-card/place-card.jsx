@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import {calcRatingInPercent} from "../../utils/common";
+import {calcRatingInPercent} from "Utils/common";
+
 
 const PlaceCard = (props) => {
   const {offer, onCardHover, onTitleClick} = props;

@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import Map from "../map/map.jsx";
-import PlacesList from "../places-list/places-list.jsx";
+import Map from "Map/map.jsx";
+import PlacesList from "PlacesList/places-list.jsx";
 
 
 const Main = (props) => {
