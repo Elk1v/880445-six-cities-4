@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "leaflet": "1.6.0",
+    "moment": "^2.27.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -39,7 +40,6 @@
     "react-router-dom": "5.2.0",
     "styled-components": "5.1.1"
   },
-
   "jest": {
     "moduleNameMapper": {
       "^App(.*)$": "<rootDir>/src/components/app$1",
@@ -47,7 +47,7 @@
       "^Map(.*)$": "<rootDir>src/components/map$1",
       "^PlaceCard(.*)$": "<rootDir>/src/components/place-card$1",
       "^PlacesList(.*)$": "<rootDir>/src/components/places-list$1",
-      "^Property(.*)$":"<rootDir>/src/components/property$1",
+      "^Property(.*)$": "<rootDir>/src/components/property$1",
       "^Review(.*)$": "<rootDir>/src/components/review$1",
       "^ReviewList(.*)$": "<rootDir>/src/components/review-list$1",
       "^Components(.*)$": "<rootDir>/src/components$1",

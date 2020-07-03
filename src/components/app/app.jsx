@@ -57,7 +57,7 @@ class App extends PureComponent {
 
   titleClickHandler(evt) {
     this.setState({
-      toShowPropertyCardId: evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`)
+      toShowPropertyCardId: parseInt(evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`), 10)
     }
     );
   }
