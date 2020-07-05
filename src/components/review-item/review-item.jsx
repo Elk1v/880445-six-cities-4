@@ -13,12 +13,12 @@ const renderText = (txtItems)=> {
   });
 };
 
-const Review = (props) => {
+const ReviewItem = (props) => {
   const {review} = props;
   const {user, rating, text, date} = review;
   const {name, avatar} = user;
 
-  const formatedDate = moment(date).format(`MMMM YYYY`)
+  const formatedDate = moment(date).format(`MMMM YYYY`);
 
 
   return (
@@ -45,7 +45,7 @@ const Review = (props) => {
   );
 };
 
-Review.propTypes = {
+ReviewItem.propTypes = {
   review: PropTypes.shape({
     id: PropTypes.number.isRequired,
     user: shape({
@@ -58,4 +58,4 @@ Review.propTypes = {
   })
 };
 
-export default Review;
+export default ReviewItem;

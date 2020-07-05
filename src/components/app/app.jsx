@@ -34,6 +34,8 @@ class App extends PureComponent {
         offer={offers.filter((offer) =>{
           return offer.id === cardId;
         })[0]}
+
+        nearbyOffers={this._filterNearByOffers(offers)}
       />
     );
   }
@@ -60,6 +62,14 @@ class App extends PureComponent {
       toShowPropertyCardId: parseInt(evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`), 10)
     }
     );
+  }
+
+  _filterNearByOffers(offers) {
+    const showedCardId = this.state.toShowPropertyCardId;
+
+    return offers.filter((offer) => {
+      return offer.id !== showedCardId;
+    });
   }
 }
 

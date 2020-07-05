@@ -2,10 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import Map from "Map/map.jsx";
 import PlacesList from "PlacesList/places-list.jsx";
+import {MapProps} from "Consts/consts";
 
 
 const Main = (props) => {
   const {offersCount, offers, onTitleClick} = props;
+  const {MAIN_RESOLUTION} = MapProps;
+  const {WIDTH, HEIGHT} = MAIN_RESOLUTION;
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -104,7 +108,11 @@ const Main = (props) => {
               </div>
             </section>
             <div className="cities__right-section">
-              <Map offers={offers}/>
+              <Map
+                offers={offers}
+                width={WIDTH}
+                height={HEIGHT}
+              />
             </div>
           </div>
         </div>

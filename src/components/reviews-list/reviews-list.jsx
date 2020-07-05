@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes, {shape} from "prop-types";
-import Review from "Review/review.jsx";
+import ReviewItem from "ReviewItem/review-item.jsx";
 
-const ReviewList = (props) => {
+const ReviewsList = (props) => {
 
   const {reviews} = props;
   const amount = reviews.length;
@@ -12,7 +12,7 @@ const ReviewList = (props) => {
       <ul className="reviews__list">
         {reviews.map((review) => {
           return (
-            <Review
+            <ReviewItem
               key={review.id}
               review={review}
             />
@@ -65,7 +65,7 @@ const ReviewList = (props) => {
   );
 };
 
-ReviewList.propTypes = {
+ReviewsList.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     user: shape({
@@ -78,4 +78,4 @@ ReviewList.propTypes = {
   }))
 };
 
-export default ReviewList;
+export default ReviewsList;
