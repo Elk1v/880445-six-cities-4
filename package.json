@@ -38,13 +38,15 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-leaflet": "2.7.0",
+    "react-redux": "7.2.0",
     "react-router-dom": "5.2.0",
+    "redux": "4.0.5",
     "styled-components": "5.1.1"
   },
   "jest": {
     "moduleNameMapper": {
-      
       "^App(.*)$": "<rootDir>/src/components/app$1",
+      "^CitiesList(.*)$": "<rootDir>/src/components/cities-list$1",
       "^Main(.*)$": "<rootDir>/src/components/main$1",
       "^Map(.*)$": "<rootDir>src/components/map$1",
       "^NearbyCard(.*)$": "<rootDir>src/components/nearby-card$1",

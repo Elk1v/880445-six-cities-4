@@ -17,10 +17,11 @@ class App extends PureComponent {
   }
 
   _renderMain() {
-    const {offers, offersCount} = this.props;
+    const {offers, cities, offersCount} = this.props;
     return (
       <Main
         offers={offers}
+        cities={cities}
         offersCount={offersCount}
         onTitleClick={this.titleClickHandler}
       />
@@ -75,6 +76,7 @@ class App extends PureComponent {
 
 App.propTypes = {
   offers: PropTypes.array.isRequired,
+  cities: PropTypes.array.isRequired,
   offersCount: PropTypes.number.isRequired,
 };
 

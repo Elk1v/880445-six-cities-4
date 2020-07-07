@@ -33,6 +33,7 @@ module.exports = {
       Consts: path.resolve(__dirname, `src/consts/`),
       Components: path.resolve(__dirname, `src/components/`),
       App: path.resolve(__dirname, `src/components/app/`),
+      CitiesList: path.resolve(__dirname, `src/components/cities-list/`),
       Main: path.resolve(__dirname, `src/components/main/`),
       Map: path.resolve(__dirname, `src/components/map/`),
       NearbyList: path.resolve(__dirname, `src/components/nearby-list/`),
