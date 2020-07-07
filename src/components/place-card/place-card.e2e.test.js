@@ -1,9 +1,10 @@
 import React from "react";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import PlaceCard from "./place-card.jsx";
-import {offer} from "../../mock/test-mocks";
 import {BrowserRouter} from "react-router-dom";
+import PlaceCard from "PlaceCard/place-card.jsx";
+import {offer} from "Mocks/test-mocks";
+
 
 Enzyme.configure({
   adapter: new Adapter(),

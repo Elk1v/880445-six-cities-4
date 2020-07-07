@@ -1,8 +1,8 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Main from "../main/main.jsx";
-import Property from "../property/property.jsx";
+import Main from "Main/main.jsx";
+import Property from "Property/property.jsx";
 
 
 class App extends PureComponent {
@@ -34,6 +34,8 @@ class App extends PureComponent {
         offer={offers.filter((offer) =>{
           return offer.id === cardId;
         })[0]}
+
+        nearbyOffers={this._filterNearByOffers(offers)}
       />
     );
   }
@@ -57,9 +59,17 @@ class App extends PureComponent {
 
   titleClickHandler(evt) {
     this.setState({
-      toShowPropertyCardId: evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`)
+      toShowPropertyCardId: parseInt(evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`), 10)
     }
     );
+  }
+
+  _filterNearByOffers(offers) {
+    const showedCardId = this.state.toShowPropertyCardId;
+
+    return offers.filter((offer) => {
+      return offer.id !== showedCardId;
+    });
   }
 }
 

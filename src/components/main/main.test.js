@@ -1,8 +1,9 @@
 import React from "react";
-import renderer from "react-test-renderer";
-import Main from "../main/main.jsx";
-import {offers, Options} from "../../mock/test-mocks";
 import {BrowserRouter} from "react-router-dom";
+import renderer from "react-test-renderer";
+import Main from "Main/main.jsx";
+import {offers, Options} from "Mocks/test-mocks";
+
 
 it(`Should Main component render correctly`, () => {
   const tree = renderer.create(

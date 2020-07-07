@@ -1,15 +1,17 @@
 import React, {PureComponent} from "react";
 import L from "leaflet";
 import PropTypes from "prop-types";
-import {MapProps} from "../../consts";
 import {Map as LeafletMap, Marker, TileLayer} from 'react-leaflet';
+import {MapProps} from "Consts/consts";
+
 
 class Map extends PureComponent {
   constructor(props) {
     super(props);
   }
+
   render() {
-    const {offers} = this.props;
+    const {offers, width, height} = this.props;
     const center = [52.38333, 4.9];
     const customIcon = L.icon({
       iconUrl: `img/pin.svg`,
@@ -21,7 +23,7 @@ class Map extends PureComponent {
         center={center}
         zoom={MapProps.ZOOM}
         zoomControl={true}
-        style={{width: 512, height: 674}}
+        style={{width: `${width}%`, height}}
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
@@ -44,6 +46,8 @@ class Map extends PureComponent {
 
 Map.propTypes = {
   offers: PropTypes.array.isRequired,
+  width: PropTypes.any.isRequired,
+  height: PropTypes.any.isRequired,
 };
 
 export default Map;

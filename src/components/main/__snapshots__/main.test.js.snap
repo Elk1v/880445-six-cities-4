@@ -650,7 +650,7 @@ exports[`Should Main component render correctly 1`] = `
             style={
               Object {
                 "height": 674,
-                "width": 512,
+                "width": "100%",
               }
             }
           />

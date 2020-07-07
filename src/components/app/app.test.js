@@ -1,7 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import App from "../app/app.jsx";
-import {offers, Options} from "../../mock/test-mocks";
+import App from "App/app.jsx";
+import {offers, Options} from "Mocks/test-mocks";
+
 
 it(`Render App`, () => {
   const tree = renderer.create(

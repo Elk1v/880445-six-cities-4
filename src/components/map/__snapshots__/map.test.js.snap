@@ -4,8 +4,8 @@ exports[`Map conponent renders correctly 1`] = `
 <div
   style={
     Object {
-      "height": 674,
-      "width": 512,
+      "height": 400,
+      "width": "100%",
     }
   }
 />

@@ -22,6 +22,7 @@
     "eslint-config-htmlacademy": "0.5.2",
     "eslint-plugin-react": "7.20.0",
     "jest": "26.0.1",
+    "moment-locales-webpack-plugin": "^1.2.0",
     "react-test-renderer": "16.13.1",
     "webpack": "4.43.0",
     "webpack-cli": "3.3.11",
@@ -32,11 +33,31 @@
   },
   "dependencies": {
     "leaflet": "1.6.0",
+    "moment": "^2.27.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-leaflet": "2.7.0",
     "react-router-dom": "5.2.0",
     "styled-components": "5.1.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      
+      "^App(.*)$": "<rootDir>/src/components/app$1",
+      "^Main(.*)$": "<rootDir>/src/components/main$1",
+      "^Map(.*)$": "<rootDir>src/components/map$1",
+      "^NearbyCard(.*)$": "<rootDir>src/components/nearby-card$1",
+      "^NearbyList(.*)$": "<rootDir>src/components/nearby-list$1",
+      "^PlaceCard(.*)$": "<rootDir>/src/components/place-card$1",
+      "^PlacesList(.*)$": "<rootDir>/src/components/places-list$1",
+      "^Property(.*)$": "<rootDir>/src/components/property$1",
+      "^ReviewsList(.*)$": "<rootDir>src/components/reviews-list$1",
+      "^ReviewItem(.*)$": "<rootDir>src/components/review-item$1",
+      "^Components(.*)$": "<rootDir>/src/components$1",
+      "^Utils(.*)$": "<rootDir>/src/utils$1",
+      "^Mocks(.*)$": "<rootDir>/src/mocks$1",
+      "^Consts(.*)$": "<rootDir>/src/consts$1"
+    }
   }
 }
