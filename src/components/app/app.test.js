@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import App from "App/app.jsx";
+import {App} from "App/app.jsx";
 import {offers, Options} from "Mocks/test-mocks";
 
 

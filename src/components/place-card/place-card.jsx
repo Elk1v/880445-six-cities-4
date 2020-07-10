@@ -5,8 +5,8 @@ import {calcRatingInPercent} from "Utils/common";
 
 
 const PlaceCard = (props) => {
-  const {offer, onCardHover, onTitleClick} = props;
-  const {id, title, features, rating, isPremium, price, images} = offer;
+  const {offer, onCardHover, onCardTitleClick} = props;
+  const {id, title, features, rating, isPremium, isBookmarked, price, images} = offer;
   const {type} = features;
 
   return (
@@ -29,12 +29,24 @@ const PlaceCard = (props) => {
             <b className="place-card__price-value">€{price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button button" type="button">
-            <svg className="place-card__bookmark-icon" width={18} height={19}>
-              <use xlinkHref="#icon-bookmark" />
-            </svg>
-            <span className="visually-hidden">To bookmarks</span>
-          </button>
+          {isBookmarked && (
+            <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
+              <svg className="place-card__bookmark-icon" width={18} height={19}>
+                <use xlinkHref="#icon-bookmark" />
+              </svg>
+              <span className="visually-hidden">To bookmarks</span>
+            </button>
+          )}
+
+          {isBookmarked || (
+            <button className="place-card__bookmark-button button" type="button">
+              <svg className="place-card__bookmark-icon" width={18} height={19}>
+                <use xlinkHref="#icon-bookmark" />
+              </svg>
+              <span className="visually-hidden">To bookmarks</span>
+            </button>
+          )}
+
         </div>
 
         <div className="place-card__rating rating">
@@ -44,7 +56,13 @@ const PlaceCard = (props) => {
           </div>
         </div>
 
-        <h2 className="place-card__name" onClick={(evt) => onTitleClick(evt)}>
+        <h2 className="place-card__name" onClick={(evt) => onCardTitleClick(
+            parseInt(evt
+             .currentTarget
+             .parentNode
+             .parentElement
+             .getAttribute(`data-key`), 10))
+        }>
           <Link
             to={{
               pathname: `/property`,
@@ -63,7 +81,7 @@ const PlaceCard = (props) => {
 };
 
 PlaceCard.propTypes = {
-  onTitleClick: PropTypes.func.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired,
   onCardHover: PropTypes.func.isRequired,
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -75,6 +93,7 @@ PlaceCard.propTypes = {
     }).isRequired,
     rating: PropTypes.number.isRequired,
     isPremium: PropTypes.bool.isRequired,
+    isBookmarked: PropTypes.bool.isRequired,
     price: PropTypes.number.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
     inside: PropTypes.arrayOf(PropTypes.string).isRequired,

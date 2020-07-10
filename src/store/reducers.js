@@ -1,30 +1,25 @@
 import {extend} from "Utils/common";
-import offers from "Mocks/offers";
+import {ActionType} from "Store/actions";
 
 const initialState = {
-  city: `Amsterdam`,
-  offers,
-};
-
-const ActionType = {
-  CHANGE_CITY: `CHANGE_CITY`,
-  SHOW_OFFERS: `SHOW_OFFERS`,
+  currentCity: `Amsterdam`,
+  currentCardId: 0,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return extend(state, {
-        city: action.payload,
+        currentCity: action.payload,
       });
 
-    case ActionType.SHOW_OFFERS:
+    case ActionType.CHANGE_CARD_ID:
       return extend(state, {
-        offers: action.payload,
+        currentCardId: action.payload,
       });
   }
 
   return state;
 };
 
-export {reducer, ActionType};
+export {reducer};

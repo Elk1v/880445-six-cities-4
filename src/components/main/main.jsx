@@ -7,9 +7,18 @@ import {MapProps} from "Consts/consts";
 
 
 const Main = (props) => {
-  const {offersCount, offers, cities, onTitleClick} = props;
+  const {cities, offers, currentCity, onCardTitleClick, onCityTitleClick} = props;
   const {MAIN_RESOLUTION} = MapProps;
   const {WIDTH, HEIGHT} = MAIN_RESOLUTION;
+  const offersCount = offers.length;
+
+  const cityElements = cities.map((city) => {
+    return {
+      name: city.name,
+      id: city.id
+    };
+  });
+
 
   return (
     <div className="page page--gray page--main">
@@ -39,14 +48,16 @@ const Main = (props) => {
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <CitiesList
-            cities={cities}
+            cityElements={cityElements}
+            currentCity={currentCity}
+            onCityTitleClick={onCityTitleClick}
           />
         </div>
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offersCount} places to stay in Amsterdam</b>
+              <b className="places__found">{offersCount} places to stay in {currentCity}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -73,12 +84,14 @@ const Main = (props) => {
               <div className="cities__places-list places__list tabs__content">
                 <PlacesList
                   offers={offers}
-                  onTitleClick={onTitleClick}
+                  onCardTitleClick={onCardTitleClick}
                 />
               </div>
             </section>
             <div className="cities__right-section">
               <Map
+                currentCity={currentCity}
+                cities={cities}
                 offers={offers}
                 width={WIDTH}
                 height={HEIGHT}
@@ -92,10 +105,11 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  offersCount: PropTypes.number.isRequired,
-  onTitleClick: PropTypes.func.isRequired,
-  offers: PropTypes.array.isRequired,
+  currentCity: PropTypes.string.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired,
+  onCityTitleClick: PropTypes.func.isRequired,
   cities: PropTypes.array.isRequired,
+  offers: PropTypes.array.isRequired,
 };
 
 export default Main;

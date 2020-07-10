@@ -31,6 +31,7 @@ module.exports = {
       Utils: path.resolve(__dirname, `src/utils/`),
       Mocks: path.resolve(__dirname, `src/mocks/`),
       Consts: path.resolve(__dirname, `src/consts/`),
+      Store: path.resolve(__dirname, `src/store/`),
       Components: path.resolve(__dirname, `src/components/`),
       App: path.resolve(__dirname, `src/components/app/`),
       CitiesList: path.resolve(__dirname, `src/components/cities-list/`),
