@@ -4,6 +4,33 @@ export const Options = {
   OFFERS_COUNT: 312,
 };
 
+export const cityElements = [
+  {
+    name: `Amsterdam`,
+    id: 0,
+  },
+  {
+    name: `Paris`,
+    id: 1,
+  },
+  {
+    name: `Cologne`,
+    id: 2,
+  },
+  {
+    name: `Brussels`,
+    id: 3,
+  },
+  {
+    name: `Hamburg`,
+    id: 4,
+  },
+  {
+    name: `Duselldolf`,
+    id: 5,
+  },
+];
+
 export const MapProps = {
   WIDTH: 100,
   HEIGHT: 400,
@@ -447,6 +474,7 @@ export const reviews = [{
   ],
   date: moment().format(`YYYY-MM-DD`),
 }];
+
 
 export const cities = [
   {

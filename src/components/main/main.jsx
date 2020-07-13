@@ -19,7 +19,6 @@ const Main = (props) => {
     };
   });
 
-
   return (
     <div className="page page--gray page--main">
       <header className="header">
