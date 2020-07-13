@@ -10,7 +10,7 @@ it(`Should PlaceList component render correcrly`, () => {
       <BrowserRouter>
         <PlacesList
           offers={offers}
-          onTitleClick={() => {}}
+          onCardTitleClick={() => {}}
         />
       </BrowserRouter>
   ).toJSON();

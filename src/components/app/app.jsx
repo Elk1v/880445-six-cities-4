@@ -11,15 +11,12 @@ class App extends PureComponent {
   _renderMain() {
     const {
       cities,
-      offersCount,
       onCardTitleClick,
       onCityTitleClick,
       currentCity,
     } = this.props;
 
     const offers = this._findOffers();
-
-    console.log(offers);
 
     return (
       <Main
