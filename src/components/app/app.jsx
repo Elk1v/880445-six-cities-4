@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import {ActionCreator} from "Store/actions";
 import Main from "Main/main.jsx";
 import Property from "Property/property.jsx";
+import makeGetOffersByCity from "Store/selectors/make-get-offers.js";
+import makeGetNearbyOffers from "Store/selectors/make-get-nearbyoffers";
 
 
 class App extends PureComponent {
@@ -14,9 +16,8 @@ class App extends PureComponent {
       onCardTitleClick,
       onCityTitleClick,
       currentCity,
+      offers,
     } = this.props;
-
-    const offers = this._findOffers();
 
     return (
       <Main
@@ -30,8 +31,7 @@ class App extends PureComponent {
   }
 
   _renderProperty(cardId) {
-    const {currentCity, cities} = this.props;
-    const offers = this._findOffers();
+    const {currentCity, cities, offers, nearbyOffers} = this.props;
     return (
       <Property
         offer={
@@ -39,7 +39,7 @@ class App extends PureComponent {
             return offer.id === cardId;
           })[0]}
 
-        nearbyOffers={this._filterNearbyOffers(offers)}
+        nearbyOffers={nearbyOffers}
         currentCity={currentCity}
         cities={cities}
       />
@@ -62,24 +62,6 @@ class App extends PureComponent {
       </BrowserRouter>
     );
   }
-
-  _filterNearbyOffers(offers) {
-    const showedCardId = this.props.currentCardId;
-
-    return offers.filter((offer) => {
-      return offer.id !== showedCardId;
-    });
-  }
-
-  _findOffers() {
-    const {cities, currentCity} = this.props;
-
-    const findCity = cities.find((city) => {
-      return city.name === currentCity;
-    });
-
-    return findCity.offers;
-  }
 }
 
 App.propTypes = {
@@ -88,12 +70,23 @@ App.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
   onCityTitleClick: PropTypes.func.isRequired,
   currentCardId: PropTypes.number.isRequired,
+  offers: PropTypes.array.isRequired,
+  nearbyOffers: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  currentCity: state.currentCity,
-  currentCardId: state.currentCardId,
-});
+const makeMapStateToProps = () => {
+  const getOffersByCity = makeGetOffersByCity();
+  const getNearbyOffers = makeGetNearbyOffers();
+
+  const mapStateToProps = (state, props) => ({
+    currentCity: state.currentCity,
+    currentCardId: state.currentCardId,
+    offers: getOffersByCity(state, props),
+    nearbyOffers: getNearbyOffers(state, props)
+  });
+
+  return mapStateToProps;
+};
 
 const mapDispatchToProps = (dispatch) => ({
   onCardTitleClick(id) {
@@ -103,8 +96,7 @@ const mapDispatchToProps = (dispatch) => ({
   onCityTitleClick(city) {
     dispatch(ActionCreator.changeCity(city));
   },
-
 });
 
 export {App};
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(makeMapStateToProps, mapDispatchToProps)(App);
