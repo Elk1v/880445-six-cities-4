@@ -10,7 +10,7 @@ it(`Should PlaceCard component render correctly`, () => {
       <BrowserRouter>
         <PlaceCard
           offer={offer}
-          onTitleClick={() => {}}
+          onCardTitleClick={() => {}}
           onCardHover={() => {}}
         />
       </BrowserRouter>

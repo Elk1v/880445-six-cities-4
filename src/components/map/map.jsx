@@ -12,7 +12,7 @@ class Map extends PureComponent {
 
   render() {
     const {offers, width, height} = this.props;
-    const center = [52.38333, 4.9];
+    const center = this._findCenter();
     const customIcon = L.icon({
       iconUrl: `img/pin.svg`,
       iconSize: MapProps.ICON_SIZE,
@@ -30,21 +30,34 @@ class Map extends PureComponent {
           attribution={`&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`}
         />
 
-        {offers.map((offer) => {
-          return (
-            <Marker key={offer.id}
-              position={offer.coords}
-              icon={customIcon}>
-            </Marker>
-          );
-        })}
+        {
+          offers.map((offer) => {
+            return (
+              <Marker key={offer.id}
+                position={offer.coords}
+                icon={customIcon}>
+              </Marker>
+            );
+          })}
       </LeafletMap>
     );
+  }
+
+  _findCenter() {
+    const {cities, currentCity} = this.props;
+
+    const findCity = cities.find((city) => {
+      return city.name === currentCity;
+    });
+
+    return findCity.center;
   }
 }
 
 
 Map.propTypes = {
+  cities: PropTypes.array.isRequired,
+  currentCity: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
   width: PropTypes.any.isRequired,
   height: PropTypes.any.isRequired,

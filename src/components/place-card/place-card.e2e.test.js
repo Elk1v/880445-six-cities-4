@@ -10,7 +10,7 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const onTitleClick = jest.fn();
+const onCardTitleClick = jest.fn();
 const onCardHover = jest.fn();
 
 it(`Should title click be passed`, () => {
@@ -20,7 +20,7 @@ it(`Should title click be passed`, () => {
         <PlaceCard
           key={offer.id}
           offer={offer}
-          onTitleClick={onTitleClick}
+          onCardTitleClick={onCardTitleClick}
           onCardHover={onCardHover}
         />
       </BrowserRouter>
@@ -29,7 +29,7 @@ it(`Should title click be passed`, () => {
   const title = placeCard.find(`.place-card__name`).first();
   title.simulate(`click`);
 
-  expect(onTitleClick.mock.calls.length).toBe(1);
+  expect(onCardTitleClick.mock.calls.length).toBe(1);
 });
 
 it(`Should hover handler receive info about offer`, () => {
@@ -38,7 +38,7 @@ it(`Should hover handler receive info about offer`, () => {
         <PlaceCard
           key={offer.id}
           offer={offer}
-          onTitleClick={onTitleClick}
+          onCardTitleClick={onCardTitleClick}
           onCardHover={onCardHover}
         />
       </BrowserRouter>

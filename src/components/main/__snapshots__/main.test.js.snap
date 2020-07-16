@@ -77,43 +77,8 @@ exports[`Should Main component render correctly 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
-              href="#"
-            >
-              <span>
-                Paris
-              </span>
-            </a>
-          </li>
-          <li
-            className="locations__item"
-          >
-            <a
-              className="locations__item-link tabs__item"
-              href="#"
-            >
-              <span>
-                Cologne
-              </span>
-            </a>
-          </li>
-          <li
-            className="locations__item"
-          >
-            <a
-              className="locations__item-link tabs__item"
-              href="#"
-            >
-              <span>
-                Brussels
-              </span>
-            </a>
-          </li>
-          <li
-            className="locations__item"
-          >
-            <a
               className="locations__item-link tabs__item tabs__item--active"
+              onClick={[Function]}
             >
               <span>
                 Amsterdam
@@ -124,8 +89,48 @@ exports[`Should Main component render correctly 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              className="locations__item-link tabs__item "
               href="#"
+              onClick={[Function]}
+            >
+              <span>
+                Paris
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
+              className="locations__item-link tabs__item "
+              href="#"
+              onClick={[Function]}
+            >
+              <span>
+                Cologne
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
+              className="locations__item-link tabs__item "
+              href="#"
+              onClick={[Function]}
+            >
+              <span>
+                Brussels
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
+              className="locations__item-link tabs__item "
+              href="#"
+              onClick={[Function]}
             >
               <span>
                 Hamburg
@@ -136,11 +141,12 @@ exports[`Should Main component render correctly 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              className="locations__item-link tabs__item "
               href="#"
+              onClick={[Function]}
             >
               <span>
-                Dusseldorf
+                Duselldolf
               </span>
             </a>
           </li>
@@ -164,8 +170,9 @@ exports[`Should Main component render correctly 1`] = `
           <b
             className="places__found"
           >
-            312
-             places to stay in Amsterdam
+            4
+             places to stay in 
+            Amsterdam
           </b>
           <form
             action="#"
@@ -345,7 +352,7 @@ exports[`Should Main component render correctly 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height={200}
-                    src="img/studio-01.jpg"
+                    src="img/apartment-01.jpg"
                     width={260}
                   />
                 </a>
@@ -372,7 +379,7 @@ exports[`Should Main component render correctly 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button"
+                    className="place-card__bookmark-button place-card__bookmark-button--active button"
                     type="button"
                   >
                     <svg
@@ -451,7 +458,7 @@ exports[`Should Main component render correctly 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height={200}
-                    src="img/studio-01.jpg"
+                    src="img/apartment-02.jpg"
                     width={260}
                   />
                 </a>
@@ -557,7 +564,7 @@ exports[`Should Main component render correctly 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height={200}
-                    src="img/studio-01.jpg"
+                    src="img/apartment-03.jpg"
                     width={260}
                   />
                 </a>
