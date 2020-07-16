@@ -28,6 +28,7 @@ class PlacesList extends PureComponent {
         );
       })
     );
+
   }
 
   hoverHandler(evt) {

@@ -50,6 +50,7 @@
       "^App(.*)$": "<rootDir>/src/components/app$1",
       "^CitiesList(.*)$": "<rootDir>/src/components/cities-list$1",
       "^Main(.*)$": "<rootDir>/src/components/main$1",
+      "^Empty(.*)$": "<rootDir>/src/components/main-empty$1",
       "^Map(.*)$": "<rootDir>src/components/map$1",
       "^NearbyCard(.*)$": "<rootDir>src/components/nearby-card$1",
       "^NearbyList(.*)$": "<rootDir>src/components/nearby-list$1",
