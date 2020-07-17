@@ -45,6 +45,7 @@ module.exports = {
       Property: path.resolve(__dirname, `src/components/property/`),
       ReviewItem: path.resolve(__dirname, `src/components/review-item/`),
       ReviewsList: path.resolve(__dirname, `src/components/reviews-list/`),
+      Sort: path.resolve(__dirname, `src/components/sort/`),
     }
   },
   plugins: [

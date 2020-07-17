@@ -63,7 +63,8 @@
       "^Utils(.*)$": "<rootDir>/src/utils$1",
       "^Mocks(.*)$": "<rootDir>/src/mocks$1",
       "^Consts(.*)$": "<rootDir>/src/consts$1",
-      "^Store(.*)$": "<rootDir>/src/store$1"
+      "^Store(.*)$": "<rootDir>/src/store$1",
+      "^Sort(.*)$": "<rootDir>src/components/sort$1"
     }
   }
 }

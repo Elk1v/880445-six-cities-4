@@ -2,6 +2,7 @@
 export const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   CHANGE_CARD_ID: `CHANGE_CARD_ID`,
+  CHANGE_SORT: `CHANGE_SORT`,
 };
 
 export const ActionCreator = {
@@ -12,6 +13,11 @@ export const ActionCreator = {
 
   changeCardId: (id) => ({
     type: ActionType.CHANGE_CARD_ID,
-    payload: id, /* parseInt(evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`), 10), */
+    payload: id,
+  }),
+
+  changeSort: (sort) => ({
+    type: ActionType.CHANGE_SORT,
+    payload: sort,
   }),
 };

@@ -3,11 +3,10 @@ import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import {ActionCreator} from "Store/actions";
+import makeGetSortedOffers from "Store/selectors/make-get-sorted-offers.js";
+import makeGetNearbyOffers from "Store/selectors/make-get-nearbyoffers.js";
 import Main from "Main/main.jsx";
 import Property from "Property/property.jsx";
-import makeGetOffersByCity from "Store/selectors/make-get-offers.js";
-import makeGetNearbyOffers from "Store/selectors/make-get-nearbyoffers";
-
 
 class App extends PureComponent {
   _renderMain() {
@@ -75,13 +74,13 @@ App.propTypes = {
 };
 
 const makeMapStateToProps = () => {
-  const getOffersByCity = makeGetOffersByCity();
+  const getSortedOffers = makeGetSortedOffers();
   const getNearbyOffers = makeGetNearbyOffers();
 
   const mapStateToProps = (state, props) => ({
     currentCity: state.currentCity,
     currentCardId: state.currentCardId,
-    offers: getOffersByCity(state, props),
+    offers: getSortedOffers(state, props),
     nearbyOffers: getNearbyOffers(state, props)
   });
 
