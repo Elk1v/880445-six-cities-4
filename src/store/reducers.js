@@ -4,7 +4,7 @@ import {ActionType} from "Store/actions";
 
 const initialState = {
   currentCity: `Amsterdam`,
-  currentCardId: 0,
+  currentCardId: -1,
   currentSort: `Popular`,
 };
 

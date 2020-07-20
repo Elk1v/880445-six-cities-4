@@ -2,53 +2,42 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {calcRatingInPercent} from "Utils/common";
+import {initialCardId} from "Consts/consts";
 
 
 const PlaceCard = (props) => {
-  const {offer, onCardHover, onCardTitleClick} = props;
+  const {offer, onCardHoverChangeId, onCardTitleClick} = props;
   const {id, title, features, rating, isPremium, isBookmarked, price, images} = offer;
   const {type} = features;
 
   return (
-    <article className="cities__place-card place-card" data-key={id} key={id} onMouseOver={(evt) => onCardHover(evt)} >
+    <article className="cities__place-card place-card" data-key={id} key={id}
+      onMouseEnter={(evt) => onCardHoverChangeId(parseInt(evt.currentTarget.getAttribute(`data-key`), 10))}
+      onMouseLeave={()=> onCardHoverChangeId(initialCardId)}>
+
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       )}
-
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={images[0]} width={260} height={200} alt="Place image" />
         </a>
       </div>
-
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">€{price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          {isBookmarked && (
-            <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
-              <svg className="place-card__bookmark-icon" width={18} height={19}>
-                <use xlinkHref="#icon-bookmark" />
-              </svg>
-              <span className="visually-hidden">To bookmarks</span>
-            </button>
-          )}
-
-          {isBookmarked || (
-            <button className="place-card__bookmark-button button" type="button">
-              <svg className="place-card__bookmark-icon" width={18} height={19}>
-                <use xlinkHref="#icon-bookmark" />
-              </svg>
-              <span className="visually-hidden">To bookmarks</span>
-            </button>
-          )}
-
+          <button className={`place-card__bookmark-button ${isBookmarked && `place-card__bookmark-button--active`} button`} type="button">
+            <svg className="place-card__bookmark-icon" width={18} height={19}>
+              <use xlinkHref="#icon-bookmark" />
+            </svg>
+            <span className="visually-hidden">To bookmarks</span>
+          </button>
         </div>
-
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
             <span style={{width: `${calcRatingInPercent(rating)}%`}} />
@@ -82,7 +71,7 @@ const PlaceCard = (props) => {
 
 PlaceCard.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
-  onCardHover: PropTypes.func.isRequired,
+  onCardHoverChangeId: PropTypes.func.isRequired,
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,

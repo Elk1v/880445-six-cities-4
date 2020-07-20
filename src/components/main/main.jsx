@@ -13,7 +13,6 @@ const Main = (props) => {
   const {MAIN_RESOLUTION} = MapProps;
   const {WIDTH, HEIGHT} = MAIN_RESOLUTION;
   const offersCount = offers.length;
-
   const cityElements = cities.map((city) => {
     return {
       name: city.name,
@@ -94,6 +93,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   currentCity: PropTypes.string.isRequired,
+  currentCardId: PropTypes.number,
   onCardTitleClick: PropTypes.func.isRequired,
   onCityTitleClick: PropTypes.func.isRequired,
   cities: PropTypes.array.isRequired,

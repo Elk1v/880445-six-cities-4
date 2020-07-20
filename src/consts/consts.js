@@ -19,3 +19,5 @@ export const SortTypes = {
   PRICE_ASCENDING: `Price: high to low`,
   TOP_RATED_FIRST: `Top rated first`,
 };
+
+export const initialCardId = -1;

@@ -14,10 +14,10 @@ export default
         bedrooms: 3,
         adults: 4,
       },
-      rating: 4.5,
+      rating: 4.6,
       isPremium: true,
       isBookmarked: false,
-      price: 100,
+      price: 200,
       images: [
         `img/studio-01.jpg`,
         `img/apartment-01.jpg`,
@@ -116,12 +116,12 @@ export default
       coords: [52.369553943508, 4.85309666406198],
 
       reviews: [{
-        id: 1,
+        id: 0,
         user: {
           name: `Max`,
           avatar: `img/avatar-max.jpg`
         },
-        rating: 4.5,
+        rating: 4.0,
         text: [
           `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
           `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`,
@@ -138,10 +138,10 @@ export default
         bedrooms: 3,
         adults: 4,
       },
-      rating: 4.5,
+      rating: 4.3,
       isPremium: true,
       isBookmarked: false,
-      price: 100,
+      price: 150,
       images: [
         `img/apartment-02.jpg`,
         `img/studio-01.jpg`,
@@ -173,12 +173,12 @@ export default
       coords: [52.3909553943508, 4.929309666406198],
 
       reviews: [{
-        id: 2,
+        id: 0,
         user: {
           name: `Max`,
           avatar: `img/avatar-max.jpg`
         },
-        rating: 4.5,
+        rating: 4.3,
         text: [
           `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
           `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`,
@@ -198,7 +198,7 @@ export default
       rating: 4.5,
       isPremium: true,
       isBookmarked: false,
-      price: 100,
+      price: 320,
       images: [
         `img/apartment-03.jpg`,
         `img/studio-01.jpg`,
@@ -231,7 +231,7 @@ export default
       coords: [52.3809553943508, 4.939309666406198],
 
       reviews: [{
-        id: 3,
+        id: 0,
         user: {
           name: `Max`,
           avatar: `img/avatar-max.jpg`

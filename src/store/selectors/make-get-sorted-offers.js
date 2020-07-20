@@ -9,7 +9,6 @@ const getOffersByCityToSort = (state, props) => {
   const currentCity = state.currentCity;
   const cities = props.cities;
   const findCity = cities.find((city) =>(city.name === currentCity));
-
   return findCity.offers;
 };
 
@@ -19,19 +18,15 @@ const makeGetSortedOffers = () => {
       (sortType, offers) => {
         switch (sortType) {
           case SortTypes.POPULAR:
-            return offers.slice();
-
+            return offers;
           case SortTypes.PRICE_DESCENDING:
-            return offers.sort((a, b) =>(a.price - b.price)).slice();
-
+            return offers.slice().sort((a, b) =>(a.price - b.price));
           case SortTypes.PRICE_ASCENDING:
-            return offers.sort((a, b) => (b.price - a.price)).slice();
-
+            return offers.slice().sort((a, b) => (b.price - a.price));
           case SortTypes.TOP_RATED_FIRST:
-            return offers.sort((a, b) => (b.rating - a.rating)).slice();
-
-          default: return offers.slice();
+            return offers.slice().sort((a, b) => (b.rating - a.rating));
         }
+        return offers;
       }
   );
 };

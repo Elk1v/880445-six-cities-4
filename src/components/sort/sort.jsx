@@ -7,12 +7,10 @@ import makeGetSortedOffers from "Store/selectors/make-get-sorted-offers";
 class Sort extends PureComponent {
   constructor(props) {
     super(props);
-
     this.state = {
       isOpened: false,
       isActive: false,
     };
-
     this.arrowClickhandler = this.arrowClickhandler.bind(this);
     this.placesOptionClickHandler = this.placesOptionClickHandler.bind(this);
   }
@@ -43,8 +41,6 @@ class Sort extends PureComponent {
         </ul>
       </form>);
   }
-
- 
 
   arrowClickhandler() {
     this.setState((prevState) => ({
