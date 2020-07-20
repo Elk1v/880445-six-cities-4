@@ -93,7 +93,6 @@ const Main = (props) => {
 
 Main.propTypes = {
   currentCity: PropTypes.string.isRequired,
-  currentCardId: PropTypes.number,
   onCardTitleClick: PropTypes.func.isRequired,
   onCityTitleClick: PropTypes.func.isRequired,
   cities: PropTypes.array.isRequired,

@@ -16,10 +16,7 @@ class App extends PureComponent {
       onCityTitleClick,
       currentCity,
       offers,
-      currentCardId
     } = this.props;
-
-    console.log(currentCity);
 
     return (
       <Main
@@ -28,7 +25,6 @@ class App extends PureComponent {
         currentCity={currentCity}
         onCardTitleClick={onCardTitleClick}
         onCityTitleClick={onCityTitleClick}
-        currentCurdId={currentCardId}
       />
     );
   }

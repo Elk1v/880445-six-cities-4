@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "Store/actions";
 import makeGetSortedOffers from "Store/selectors/make-get-sorted-offers";
+import {sorters} from "Consts/consts";
 
 class Sort extends PureComponent {
   constructor(props) {
@@ -18,7 +19,6 @@ class Sort extends PureComponent {
   render() {
     const {isOpened, isActive} = this.state;
     const {currentSort} = this.props;
-    const sorters = [`Popular`, `Price: low to high`, `Price: high to low`, `Top rated first`];
 
     return (
       <form className="places__sorting" action="#" method="get" onClick={this.arrowClickhandler}>
@@ -62,7 +62,7 @@ class Sort extends PureComponent {
 }
 
 Sort.propTypes = {
-  currentSort: PropTypes.string.isRequired,
+  currentSort: PropTypes.string,
   onSortChange: PropTypes.func.isRequired,
 };
 

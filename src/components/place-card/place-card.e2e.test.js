@@ -11,7 +11,7 @@ Enzyme.configure({
 });
 
 const onCardTitleClick = jest.fn();
-const onCardHover = jest.fn();
+const onCardHoverChangeId = jest.fn();
 
 it(`Should title click be passed`, () => {
 
@@ -21,7 +21,7 @@ it(`Should title click be passed`, () => {
           key={offer.id}
           offer={offer}
           onCardTitleClick={onCardTitleClick}
-          onCardHover={onCardHover}
+          onCardHoverChangeId={onCardHoverChangeId}
         />
       </BrowserRouter>
   );
@@ -39,7 +39,7 @@ it(`Should hover handler receive info about offer`, () => {
           key={offer.id}
           offer={offer}
           onCardTitleClick={onCardTitleClick}
-          onCardHover={onCardHover}
+          onCardHoverChangeId={onCardHoverChangeId}
         />
       </BrowserRouter>
   );

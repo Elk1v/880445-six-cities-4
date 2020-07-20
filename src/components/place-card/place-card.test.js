@@ -11,7 +11,7 @@ it(`Should PlaceCard component render correctly`, () => {
         <PlaceCard
           offer={offer}
           onCardTitleClick={() => {}}
-          onCardHover={() => {}}
+          onCardHoverChangeId={() => {}}
         />
       </BrowserRouter>
   ).toJSON();
