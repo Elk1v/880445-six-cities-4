@@ -1,8 +1,5 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import {connect} from "react-redux";
-import {ActionCreator} from "Store/actions";
-import makeGetSortedOffers from "Store/selectors/make-get-sorted-offers";
 import {sorters} from "Consts/consts";
 
 class Sort extends PureComponent {
@@ -66,22 +63,5 @@ Sort.propTypes = {
   onSortChange: PropTypes.func.isRequired,
 };
 
-const makeMapStateToProps = () => {
-  const getSortedOffers = makeGetSortedOffers();
+export default Sort;
 
-  const mapStateToProps = (state, props) => ({
-    sortedOffers: getSortedOffers(state, props),
-    currentSort: state.currentSort,
-  });
-
-  return mapStateToProps;
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  onSortChange(sort) {
-    dispatch(ActionCreator.changeSort(sort));
-  },
-});
-
-export {Sort};
-export default connect(makeMapStateToProps, mapDispatchToProps)(Sort);

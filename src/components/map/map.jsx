@@ -1,5 +1,4 @@
 import React, {PureComponent} from "react";
-import {connect} from "react-redux";
 import L from "leaflet";
 import PropTypes from "prop-types";
 import {Map as LeafletMap, Marker, TileLayer} from 'react-leaflet';
@@ -66,13 +65,4 @@ Map.propTypes = {
   height: PropTypes.any,
 };
 
-const makeMapStateToProps = () => {
-  const mapStateToProps = (state) => ({
-    currentCardId: state.currentCardId,
-  });
-
-  return mapStateToProps;
-};
-
-export {Map};
-export default connect(makeMapStateToProps)(Map);
+export default Map;

@@ -14,8 +14,12 @@ class App extends PureComponent {
       cities,
       onCardTitleClick,
       onCityTitleClick,
+      onSortChange,
       currentCity,
       offers,
+      currentSort,
+      currentCardId,
+
     } = this.props;
 
     return (
@@ -23,8 +27,11 @@ class App extends PureComponent {
         cities={cities}
         offers={offers}
         currentCity={currentCity}
+        currentSort={currentSort}
+        currentCardId={currentCardId}
         onCardTitleClick={onCardTitleClick}
         onCityTitleClick={onCityTitleClick}
+        onSortChange={onSortChange}
       />
     );
   }
@@ -68,7 +75,9 @@ App.propTypes = {
   currentCity: PropTypes.string.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onCityTitleClick: PropTypes.func.isRequired,
+  onSortChange: PropTypes.func.isRequired,
   currentCardId: PropTypes.number.isRequired,
+  currentSort: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
   nearbyOffers: PropTypes.array.isRequired,
 };
@@ -81,7 +90,8 @@ const makeMapStateToProps = () => {
     currentCity: state.currentCity,
     currentCardId: state.currentCardId,
     offers: getSortedOffers(state, props),
-    nearbyOffers: getNearbyOffers(state, props)
+    nearbyOffers: getNearbyOffers(state, props),
+    currentSort: state.currentSort,
   });
 
   return mapStateToProps;
@@ -94,6 +104,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   onCityTitleClick(city) {
     dispatch(ActionCreator.changeCity(city));
+  },
+
+  onSortChange(sort) {
+    dispatch(ActionCreator.changeSort(sort));
   },
 });
 

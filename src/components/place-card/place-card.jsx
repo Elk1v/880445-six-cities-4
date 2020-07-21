@@ -10,10 +10,18 @@ const PlaceCard = (props) => {
   const {id, title, features, rating, isPremium, isBookmarked, price, images} = offer;
   const {type} = features;
 
+  const mouseEnterHandler = (evt) => {
+    onCardHoverChangeId(parseInt(evt.currentTarget.getAttribute(`data-key`), 10));
+  };
+
+  const mouseLeaveHandler = () => {
+    onCardHoverChangeId(initialCardId);
+  };
+
   return (
     <article className="cities__place-card place-card" data-key={id} key={id}
-      onMouseEnter={(evt) => onCardHoverChangeId(parseInt(evt.currentTarget.getAttribute(`data-key`), 10))}
-      onMouseLeave={()=> onCardHoverChangeId(initialCardId)}>
+      onMouseEnter={(evt) => mouseEnterHandler(evt)}
+      onMouseLeave={()=> mouseLeaveHandler()}>
 
       {isPremium && (
         <div className="place-card__mark">
