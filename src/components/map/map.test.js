@@ -10,6 +10,7 @@ const mockStore = configureStore([]);
 it(`Map conponent renders correctly`, () => {
   const store = mockStore({
     currentCity: `Amsterdam`,
+    currentCardId: 1,
   });
   const {WIDTH, HEIGHT} = MapProps;
 
@@ -17,6 +18,7 @@ it(`Map conponent renders correctly`, () => {
       <Provider store={store}>
         <Map
           currentCity={`Amsterdam`}
+          currentCardId={1}
           cities={cities}
           offers={offers}
           width={WIDTH}

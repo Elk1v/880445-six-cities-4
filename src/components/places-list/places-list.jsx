@@ -1,21 +1,17 @@
 import React, {PureComponent} from "react";
+import {connect} from "react-redux";
+import {ActionCreator} from "Store/actions";
+// import {getCurrentCardId} from "Store/selectors/get-current-card-id.js";
 import PropTypes from "prop-types";
 import PlaceCard from "PlaceCard/place-card.jsx";
-
 
 class PlacesList extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      currentCard: null,
-    };
-
-    this.hoverHandler = this.hoverHandler.bind(this);
   }
 
   render() {
-    const {offers, onCardTitleClick} = this.props;
+    const {offers, onCardTitleClick, onCardHoverChangeId} = this.props;
     return (
       offers.map((offer) =>{
         return (
@@ -23,23 +19,34 @@ class PlacesList extends PureComponent {
             key={offer.id}
             offer={offer}
             onCardTitleClick={onCardTitleClick}
-            onCardHover={this.hoverHandler}
+            onCardHoverChangeId={onCardHoverChangeId}
           />
         );
       })
     );
-  }
 
-  hoverHandler(evt) {
-    this.setState({
-      currentCard: evt.currentTarget,
-    });
   }
 }
 
 PlacesList.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.array.isRequired,
+  onCardHoverChangeId: PropTypes.func.isRequired,
 };
 
-export default PlacesList;
+const makeMapStateToProps = () => {
+  const mapStateToProps = (state) => ({
+    currentCardId: state.currentCardId,
+  });
+
+  return mapStateToProps;
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onCardHoverChangeId(id) {
+    dispatch(ActionCreator.changeCardId(id));
+  },
+});
+
+export {PlacesList};
+export default connect(makeMapStateToProps, mapDispatchToProps)(PlacesList);

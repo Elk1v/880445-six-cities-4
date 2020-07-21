@@ -89,8 +89,7 @@ exports[`Render App 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item "
-              href="#"
+              className="locations__item-link tabs__item false"
               onClick={[Function]}
             >
               <span>
@@ -102,8 +101,7 @@ exports[`Render App 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item "
-              href="#"
+              className="locations__item-link tabs__item false"
               onClick={[Function]}
             >
               <span>
@@ -115,8 +113,7 @@ exports[`Render App 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item "
-              href="#"
+              className="locations__item-link tabs__item false"
               onClick={[Function]}
             >
               <span>
@@ -128,8 +125,7 @@ exports[`Render App 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item "
-              href="#"
+              className="locations__item-link tabs__item false"
               onClick={[Function]}
             >
               <span>
@@ -141,8 +137,7 @@ exports[`Render App 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item "
-              href="#"
+              className="locations__item-link tabs__item false"
               onClick={[Function]}
             >
               <span>
@@ -178,6 +173,7 @@ exports[`Render App 1`] = `
             action="#"
             className="places__sorting"
             method="get"
+            onClick={[Function]}
           >
             <span
               className="places__sorting-caption"
@@ -188,7 +184,6 @@ exports[`Render App 1`] = `
               className="places__sorting-type"
               tabIndex={0}
             >
-              Popular
               <svg
                 className="places__sorting-arrow"
                 height={4}
@@ -200,28 +195,32 @@ exports[`Render App 1`] = `
               </svg>
             </span>
             <ul
-              className="places__options places__options--custom"
+              className="places__options places__options--custom false"
             >
               <li
-                className="places__option places__option--active"
+                className="places__option places__option--active false"
+                onClick={[Function]}
                 tabIndex={0}
               >
                 Popular
               </li>
               <li
-                className="places__option"
+                className="places__option places__option--active false"
+                onClick={[Function]}
                 tabIndex={0}
               >
                 Price: low to high
               </li>
               <li
-                className="places__option"
+                className="places__option places__option--active false"
+                onClick={[Function]}
                 tabIndex={0}
               >
                 Price: high to low
               </li>
               <li
-                className="places__option"
+                className="places__option places__option--active false"
+                onClick={[Function]}
                 tabIndex={0}
               >
                 Top rated first
@@ -234,7 +233,8 @@ exports[`Render App 1`] = `
             <article
               className="cities__place-card place-card"
               data-key={0}
-              onMouseOver={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -280,7 +280,7 @@ exports[`Render App 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button"
+                    className="place-card__bookmark-button false button"
                     type="button"
                   >
                     <svg
@@ -340,7 +340,8 @@ exports[`Render App 1`] = `
             <article
               className="cities__place-card place-card"
               data-key={1}
-              onMouseOver={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -439,7 +440,8 @@ exports[`Render App 1`] = `
             <article
               className="cities__place-card place-card"
               data-key={2}
-              onMouseOver={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -485,7 +487,7 @@ exports[`Render App 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button"
+                    className="place-card__bookmark-button false button"
                     type="button"
                   >
                     <svg
@@ -545,7 +547,8 @@ exports[`Render App 1`] = `
             <article
               className="cities__place-card place-card"
               data-key={3}
-              onMouseOver={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -591,7 +594,7 @@ exports[`Render App 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button"
+                    className="place-card__bookmark-button false button"
                     type="button"
                   >
                     <svg
@@ -664,6 +667,7 @@ exports[`Render App 1`] = `
         </div>
       </div>
     </div>
+     
   </main>
 </div>
 `;

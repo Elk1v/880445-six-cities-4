@@ -208,7 +208,7 @@ Property.propTypes = {
       text: PropTypes.arrayOf(PropTypes.string).isRequired,
       date: PropTypes.any.isRequired,
     }))
-  }).isRequired,
+  }),
   nearbyOffers: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   cities: PropTypes.array.isRequired,

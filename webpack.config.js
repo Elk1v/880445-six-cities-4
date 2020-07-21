@@ -36,6 +36,7 @@ module.exports = {
       App: path.resolve(__dirname, `src/components/app/`),
       CitiesList: path.resolve(__dirname, `src/components/cities-list/`),
       Main: path.resolve(__dirname, `src/components/main/`),
+      Empty: path.resolve(__dirname, `src/components/main-empty/`),
       Map: path.resolve(__dirname, `src/components/map/`),
       NearbyList: path.resolve(__dirname, `src/components/nearby-list/`),
       NearbyCard: path.resolve(__dirname, `src/components/nearby-card/`),
@@ -44,6 +45,7 @@ module.exports = {
       Property: path.resolve(__dirname, `src/components/property/`),
       ReviewItem: path.resolve(__dirname, `src/components/review-item/`),
       ReviewsList: path.resolve(__dirname, `src/components/reviews-list/`),
+      Sort: path.resolve(__dirname, `src/components/sort/`),
     }
   },
   plugins: [
