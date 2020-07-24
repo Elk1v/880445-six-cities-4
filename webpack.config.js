@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 const path = require(`path`);
 const MomentLocalesPlugin = require(`moment-locales-webpack-plugin`);
 
 module.exports = {
+  mode: `development`,
   entry: `./src/index.js`,
   output: {
     filename: `bundle.js`,
@@ -32,6 +34,7 @@ module.exports = {
       Mocks: path.resolve(__dirname, `src/mocks/`),
       Consts: path.resolve(__dirname, `src/consts/`),
       Store: path.resolve(__dirname, `src/store/`),
+      Hocs: path.resolve(__dirname, `src/hocs/`),
       Components: path.resolve(__dirname, `src/components/`),
       App: path.resolve(__dirname, `src/components/app/`),
       CitiesList: path.resolve(__dirname, `src/components/cities-list/`),

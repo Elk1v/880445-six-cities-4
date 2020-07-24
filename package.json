@@ -59,12 +59,13 @@
       "^Property(.*)$": "<rootDir>/src/components/property$1",
       "^ReviewsList(.*)$": "<rootDir>src/components/reviews-list$1",
       "^ReviewItem(.*)$": "<rootDir>src/components/review-item$1",
+      "^Sort(.*)$": "<rootDir>src/components/sort$1",
       "^Components(.*)$": "<rootDir>/src/components$1",
+      "^Hocs(.*)$": "<rootDir>src/hocs$1",
       "^Utils(.*)$": "<rootDir>/src/utils$1",
       "^Mocks(.*)$": "<rootDir>/src/mocks$1",
       "^Consts(.*)$": "<rootDir>/src/consts$1",
-      "^Store(.*)$": "<rootDir>/src/store$1",
-      "^Sort(.*)$": "<rootDir>src/components/sort$1"
+      "^Store(.*)$": "<rootDir>/src/store$1"
     }
   }
 }

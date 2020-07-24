@@ -5,7 +5,6 @@ import {Map as LeafletMap, Marker, TileLayer} from 'react-leaflet';
 import {MapProps} from "Consts/consts";
 
 class Map extends PureComponent {
-
   constructor(props) {
     super(props);
   }
@@ -51,7 +50,6 @@ class Map extends PureComponent {
   _findCenter() {
     const {cities, currentCity} = this.props;
     const findCity = cities.find((city) => city.name === currentCity);
-
     return findCity.center;
   }
 }

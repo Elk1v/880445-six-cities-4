@@ -184,6 +184,7 @@ exports[`Should Main component render correctly 1`] = `
               className="places__sorting-type"
               tabIndex={0}
             >
+              Popular
               <svg
                 className="places__sorting-arrow"
                 height={4}

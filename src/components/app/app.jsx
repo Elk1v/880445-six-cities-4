@@ -19,7 +19,6 @@ class App extends PureComponent {
       offers,
       currentSort,
       currentCardId,
-
     } = this.props;
 
     return (
@@ -40,11 +39,7 @@ class App extends PureComponent {
     const {currentCity, cities, offers, nearbyOffers} = this.props;
     return (
       <Property
-        offer={
-          offers.filter((offer) =>{
-            return offer.id === cardId;
-          })[0]}
-
+        offer={this._getPropertyOfferBy(offers, cardId)}
         nearbyOffers={nearbyOffers}
         currentCity={currentCity}
         cities={cities}
@@ -52,8 +47,12 @@ class App extends PureComponent {
     );
   }
 
+  _getPropertyOfferBy(offers, cardId) {
+    return offers.filter((offer) => offer.id === cardId)[0];
+  }
+
   render() {
-    const toShowPropertyCardId = this.props.currentCardId;
+    const {currentCardId} = this.props;
 
     return (
       <BrowserRouter>
@@ -62,7 +61,7 @@ class App extends PureComponent {
             {this._renderMain()}
           </Route>
           <Route exact path="/property">
-            {this._renderProperty(toShowPropertyCardId)}
+            {this._renderProperty(currentCardId)}
           </Route>
         </Switch>
       </BrowserRouter>
@@ -86,15 +85,13 @@ const makeMapStateToProps = () => {
   const getSortedOffers = makeGetSortedOffers();
   const getNearbyOffers = makeGetNearbyOffers();
 
-  const mapStateToProps = (state, props) => ({
+  return (state, props) => ({
     currentCity: state.currentCity,
     currentCardId: state.currentCardId,
     offers: getSortedOffers(state, props),
     nearbyOffers: getNearbyOffers(state, props),
     currentSort: state.currentSort,
   });
-
-  return mapStateToProps;
 };
 
 const mapDispatchToProps = (dispatch) => ({
