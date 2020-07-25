@@ -31,28 +31,28 @@ exports[`Sort conponent renders correctly 1`] = `
     className="places__options places__options--custom false"
   >
     <li
-      className="places__option places__option--active false"
+      className="places__option places__option--active places__option--active"
       onClick={[Function]}
       tabIndex={0}
     >
       Popular
     </li>
     <li
-      className="places__option places__option--active false"
+      className="places__option places__option--active places__option--active"
       onClick={[Function]}
       tabIndex={0}
     >
       Price: low to high
     </li>
     <li
-      className="places__option places__option--active false"
+      className="places__option places__option--active places__option--active"
       onClick={[Function]}
       tabIndex={0}
     >
       Price: high to low
     </li>
     <li
-      className="places__option places__option--active false"
+      className="places__option places__option--active places__option--active"
       onClick={[Function]}
       tabIndex={0}
     >

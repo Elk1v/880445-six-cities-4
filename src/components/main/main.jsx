@@ -1,31 +1,16 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-/*
-import {connect} from "react-redux";
-import {ActionCreator} from "Store/actions";
-import makeGetSortedOffers from "Store/selectors/make-get-sorted-offers"; */
 import CitiesList from "CitiesList/cities-list.jsx";
 import Map from "Map/map.jsx";
 import Empty from "Empty/main-empty.jsx";
 import PlacesList from "PlacesList/places-list.jsx";
 import Sort from "Sort/sort.jsx";
+import withSort from "Hocs/with-sort/with-sort.jsx";
 import {MapProps} from "Consts/consts";
 
+const SorterWrapped = withSort(Sort);
 
 class Main extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
-  _getCityElements(cities) {
-    return cities.map((city) => {
-      return {
-        name: city.name,
-        id: city.id,
-      };
-    });
-  }
-
   render() {
     const {cities, offers, currentCity, onCardTitleClick, onCityTitleClick, currentCardId, currentSort, onSortChange} = this.props;
     const {MAIN_RESOLUTION} = MapProps;
@@ -78,8 +63,7 @@ class Main extends PureComponent {
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
                   <b className="places__found">{offersCount} places to stay in {currentCity}</b>
-                  <Sort
-                    cities={cities}
+                  <SorterWrapped
                     onSortChange={onSortChange}
                     currentSort={currentSort}
                   />
@@ -105,6 +89,15 @@ class Main extends PureComponent {
         </main>
       </div>
     );
+  }
+
+  _getCityElements(cities) {
+    return cities.map((city) => {
+      return {
+        name: city.name,
+        id: city.id,
+      };
+    });
   }
 }
 

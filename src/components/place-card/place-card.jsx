@@ -5,7 +5,7 @@ import {calcRatingInPercent} from "Utils/common";
 import {initialCardId} from "Consts/consts";
 
 
-const PlaceCard = (props) => {
+const PlaceCard = React.memo(function PlaceCard(props) {
   const {offer, onCardHoverChangeId, onCardTitleClick} = props;
   const {id, title, features, rating, isPremium, isBookmarked, price, images} = offer;
   const {type} = features;
@@ -16,6 +16,10 @@ const PlaceCard = (props) => {
 
   const mouseLeaveHandler = () => {
     onCardHoverChangeId(initialCardId);
+  };
+
+  const placeCardClickHandler = (evt) => {
+    onCardTitleClick(parseInt(evt.currentTarget.parentNode.parentElement.getAttribute(`data-key`), 10));
   };
 
   return (
@@ -53,13 +57,7 @@ const PlaceCard = (props) => {
           </div>
         </div>
 
-        <h2 className="place-card__name" onClick={(evt) => onCardTitleClick(
-            parseInt(evt
-             .currentTarget
-             .parentNode
-             .parentElement
-             .getAttribute(`data-key`), 10))
-        }>
+        <h2 className="place-card__name" onClick={(evt) => placeCardClickHandler(evt)}>
           <Link
             to={{
               pathname: `/property`,
@@ -75,7 +73,7 @@ const PlaceCard = (props) => {
       </div>
     </article>
   );
-};
+});
 
 PlaceCard.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,

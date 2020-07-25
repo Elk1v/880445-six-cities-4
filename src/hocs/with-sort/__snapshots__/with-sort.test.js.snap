@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withSort is rendered correctly 1`] = `
+<div
+  isActive={false}
+  isOpened={false}
+  onArrowClick={[Function]}
+  onPlacesOptionClick={[Function]}
+/>
+`;

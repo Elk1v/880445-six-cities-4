@@ -1,6 +1,5 @@
 import {extend} from "Utils/common";
 import {ActionType} from "Store/actions";
-// import {SortTypes} from "Consts/consts";
 
 const initialState = {
   currentCity: `Amsterdam`,

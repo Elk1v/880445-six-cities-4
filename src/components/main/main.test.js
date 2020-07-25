@@ -8,11 +8,11 @@ import {cities, offers} from "Mocks/test-mocks";
 
 const mockStore = configureStore([]);
 
-
 it(`Should Main component render correctly`, () => {
   const store = mockStore({
     currentCity: `Amsterdam`,
-
+    currentCardId: 0,
+    currentSort: `Popular`
   });
 
   const tree = renderer.create(
@@ -24,7 +24,9 @@ it(`Should Main component render correctly`, () => {
             offers={offers}
             onCityTitleClick={() => {}}
             onCardTitleClick={() => {}}
-          />
+            currentCardId={0}
+            currentSort={`Popular`}
+            onSortChange={() => {}}/>
         </Provider>
       </BrowserRouter>,
 

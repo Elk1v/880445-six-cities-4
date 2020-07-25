@@ -11,6 +11,7 @@ it(`Render App`, () => {
   const store = mockStore({
     currentCity: `Amsterdam`,
     currentCardId: 0,
+    currentSort: `Popular`
   });
 
   const tree = renderer.create(
@@ -23,7 +24,8 @@ it(`Render App`, () => {
           currentCardId={0}
           offers={offers}
           nearbyOffers={offers}
-        />
+          currentSort={`Popular`}
+          onSortChange={() => {}}/>
       </Provider>,
 
       {createNodeMock: () => document.createElement(`div`)
