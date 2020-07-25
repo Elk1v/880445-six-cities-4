@@ -12,13 +12,15 @@ it(`Should Main component render correctly`, () => {
   const store = mockStore({
     currentCity: `Amsterdam`,
     currentCardId: 0,
-    currentSort: `Popular`
+    currentSort: `Popular`,
+    isLoaded: true,
   });
 
   const tree = renderer.create(
       <BrowserRouter>
         <Provider store={store}>
           <Main
+            isLoaded={true}
             currentCity={`Amsterdam`}
             cities={cities}
             offers={offers}

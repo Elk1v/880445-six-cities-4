@@ -11,6 +11,7 @@ import Property from "Property/property.jsx";
 class App extends PureComponent {
   _renderMain() {
     const {
+      isLoaded,
       cities,
       onCardTitleClick,
       onCityTitleClick,
@@ -23,6 +24,7 @@ class App extends PureComponent {
 
     return (
       <Main
+        isLoaded={isLoaded}
         cities={cities}
         offers={offers}
         currentCity={currentCity}
@@ -70,6 +72,7 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
+  isLoaded: PropTypes.bool.isRequired,
   cities: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
@@ -86,6 +89,7 @@ const makeMapStateToProps = () => {
   const getNearbyOffers = makeGetNearbyOffers();
 
   return (state, props) => ({
+    isLoaded: state.isLoaded,
     currentCity: state.currentCity,
     currentCardId: state.currentCardId,
     offers: getSortedOffers(state, props),

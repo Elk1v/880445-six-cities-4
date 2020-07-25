@@ -5,6 +5,7 @@ const initialState = {
   currentCity: `Amsterdam`,
   currentCardId: -1,
   currentSort: `Popular`,
+  isLoaded: true,
 };
 
 const reducer = (state = initialState, action) => {
