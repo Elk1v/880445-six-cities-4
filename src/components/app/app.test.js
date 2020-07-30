@@ -11,12 +11,14 @@ it(`Render App`, () => {
   const store = mockStore({
     currentCity: `Amsterdam`,
     currentCardId: 0,
-    currentSort: `Popular`
+    currentSort: `Popular`,
+    isLoaded: true,
   });
 
   const tree = renderer.create(
       <Provider store={store}>
         <App
+          isLoaded={true}
           cities={cities}
           onCityTitleClick={() => {}}
           onCardTitleClick={() => {}}

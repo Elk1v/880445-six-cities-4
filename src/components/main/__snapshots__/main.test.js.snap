@@ -668,7 +668,6 @@ exports[`Should Main component render correctly 1`] = `
         </div>
       </div>
     </div>
-     
   </main>
 </div>
 `;

@@ -668,7 +668,6 @@ exports[`Render App 1`] = `
         </div>
       </div>
     </div>
-     
   </main>
 </div>
 `;

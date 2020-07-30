@@ -12,7 +12,17 @@ const SorterWrapped = withSort(Sort);
 
 class Main extends PureComponent {
   render() {
-    const {cities, offers, currentCity, onCardTitleClick, onCityTitleClick, currentCardId, currentSort, onSortChange} = this.props;
+    const {
+      isLoaded,
+      cities,
+      offers,
+      currentCity,
+      onCardTitleClick,
+      onCityTitleClick,
+      currentCardId,
+      currentSort,
+      onSortChange
+    } = this.props;
     const {MAIN_RESOLUTION} = MapProps;
     const {WIDTH, HEIGHT} = MAIN_RESOLUTION;
     const offersCount = offers.length;
@@ -25,7 +35,7 @@ class Main extends PureComponent {
             <div className="header__wrapper">
               <div className="header__left">
                 <a className="header__logo-link header__logo-link--active">
-                  <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width={81} height={41} />
+                  <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width={81} height={41}/>
                 </a>
               </div>
               <nav className="header__nav">
@@ -44,14 +54,14 @@ class Main extends PureComponent {
         </header>
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
+          {isLoaded &&
           <div className="tabs">
             <CitiesList
               cityElements={cityElements}
               currentCity={currentCity}
               onCityTitleClick={onCityTitleClick}
             />
-          </div>
-
+          </div>}
           {offers.length === 0
             ? <Empty
               currentCity={currentCity}
@@ -85,7 +95,12 @@ class Main extends PureComponent {
                   />
                 </div>
               </div>
-            </div>} {/**/}
+            </div>}
+
+          {isLoaded ||
+          <Empty/>
+          }
+          {/**/}
         </main>
       </div>
     );
@@ -102,6 +117,7 @@ class Main extends PureComponent {
 }
 
 Main.propTypes = {
+  isLoaded: PropTypes.bool.isRequired,
   currentCity: PropTypes.string.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onCityTitleClick: PropTypes.func.isRequired,

@@ -7,6 +7,7 @@ it(`Reducer without additional params should return initial state`, () => {
     currentCity: `Amsterdam`,
     currentCardId: -1,
     currentSort: `Popular`,
+    isLoaded: true,
   });
 });
 
