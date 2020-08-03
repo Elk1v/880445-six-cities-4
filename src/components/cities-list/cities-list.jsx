@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const CitiesList = (props) => {
-  const {cityElements, onCityTitleClick, currentCity} = props;
+  const {citiesNameList, onCityTitleClick, currentCity} = props;
 
   const locationsClickHandler = (evt) => {
     evt.preventDefault();
@@ -12,12 +12,12 @@ const CitiesList = (props) => {
   return (
     <section className="locations container">
       <ul className="locations__list tabs__list">
-        {cityElements.map((cityElement) =>{
-          const isActive = cityElement.name === currentCity;
+        {citiesNameList.map((cityName, i) =>{
+          const isActive = cityName === currentCity;
           return (
-            <li className="locations__item" key={cityElement.id}>
+            <li className="locations__item" key={i + cityName}>
               <a className={`locations__item-link tabs__item ${isActive && `tabs__item--active`}`} onClick={(evt) => locationsClickHandler(evt)}>
-                <span>{cityElement.name}</span>
+                <span>{cityName}</span>
               </a>
             </li>
           );
@@ -28,7 +28,7 @@ const CitiesList = (props) => {
 };
 
 CitiesList.propTypes = {
-  cityElements: PropTypes.array.isRequired,
+  citiesNameList: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   onCityTitleClick: PropTypes.func.isRequired,
 };

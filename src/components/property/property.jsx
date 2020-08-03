@@ -211,7 +211,6 @@ Property.propTypes = {
   }),
   nearbyOffers: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
-  cities: PropTypes.array.isRequired,
 };
 
 export default Property;

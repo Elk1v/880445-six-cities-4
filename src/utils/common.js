@@ -14,3 +14,13 @@ export const findOffers = (cities, currentCity) => {
   return findCity.offers;
 };
 
+
+export const groupBy = (array, key) => {
+  return array.reduce((result, currentValue) => {
+    (result[currentValue[key]] = result[currentValue[key]] || []).push(
+      currentValue
+    );
+    return result;
+  }, {});
+};
+

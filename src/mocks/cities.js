@@ -991,7 +991,7 @@ export default
     }]
   },
   {
-    name: `Duselldolf`,
+    name: `Dusseldorf`,
     id: 5,
     center: [51.233334, 6.783333],
     offers: [{
