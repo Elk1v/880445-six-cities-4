@@ -1,4 +1,4 @@
-import {reducer} from "./reducers";
+import {reducer} from "./reducer";
 import {cities} from "Mocks/test-mocks";
 import {ActionType} from "./actions";
 
@@ -7,7 +7,6 @@ it(`Reducer without additional params should return initial state`, () => {
     currentCity: `Amsterdam`,
     currentCardId: -1,
     currentSort: `Popular`,
-    isLoaded: true,
   });
 });
 

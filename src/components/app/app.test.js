@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {App} from "App/app.jsx";
-import {cities, offers} from "Mocks/test-mocks";
+import {cities, offers, cityElements} from "Mocks/test-mocks";
 
 const mockStore = configureStore([]);
 
@@ -12,13 +12,12 @@ it(`Render App`, () => {
     currentCity: `Amsterdam`,
     currentCardId: 0,
     currentSort: `Popular`,
-    isLoaded: true,
   });
 
   const tree = renderer.create(
       <Provider store={store}>
         <App
-          isLoaded={true}
+          citiesNameList={cityElements}
           cities={cities}
           onCityTitleClick={() => {}}
           onCardTitleClick={() => {}}

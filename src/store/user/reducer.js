@@ -2,10 +2,10 @@ import {extend} from "Utils/common";
 import {AuthorizationStatus, ActionType} from "./actions";
 
 const initialState = {
-  authorizationStatus:  AuthorizationStatus.NO_AUTH,
+  authorizationStatus: AuthorizationStatus.NO_AUTH,
 };
 
-export const reducer =(state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.REQUIRED_AUTHORIZATION:
       return extend(state, {
@@ -13,5 +13,5 @@ export const reducer =(state = initialState, action) => {
       });
   }
 
-  return  state;
+  return state;
 };

@@ -1,4 +1,4 @@
-const  NameSpace = {
+const NameSpace = {
   USER: `USER`,
   DATA: `DATA`,
   APP: `APP`,

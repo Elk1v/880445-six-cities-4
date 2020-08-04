@@ -17,7 +17,7 @@ it(`Cities list component renders correctly`, () => {
         <CitiesList
           currentCity={`Amsterdam`}
           onCityTitleClick={() => {}}
-          cityElements={cityElements}
+          citiesNameList={cityElements}
         />
       </Provider>
   ).toJSON();

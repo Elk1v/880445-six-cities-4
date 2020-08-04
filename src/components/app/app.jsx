@@ -8,14 +8,13 @@ import makeGetNearbyOffers from "Store/selectors/make-get-nearbyoffers";
 import makeGetCitiesNameList from "Store/selectors/make-get-cities-name-list";
 import {getCurrentCardId} from "Store/selectors/get-current-card-id";
 import {getCurrentCity} from "Store/selectors/get-current-city";
-import {getCurrentSort} from "Store/selectors/get-current-sort"
+import {getCurrentSort} from "Store/selectors/get-current-sort";
 import Main from "Main/main.jsx";
 import Property from "Property/property.jsx";
 
 class App extends PureComponent {
   _renderMain() {
     const {
-      cities,
       onCardTitleClick,
       onCityTitleClick,
       onSortChange,
@@ -28,7 +27,6 @@ class App extends PureComponent {
 
     return (
       <Main
-        cities={cities}
         citiesNameList={citiesNameList}
         offers={offers}
         currentCity={currentCity}
@@ -42,13 +40,12 @@ class App extends PureComponent {
   }
 
   _renderProperty(cardId) {
-    const {currentCity, cities, offers, nearbyOffers} = this.props;
+    const {currentCity, offers, nearbyOffers} = this.props;
     return (
       <Property
         offer={this._getPropertyOfferBy(offers, cardId)}
         nearbyOffers={nearbyOffers}
         currentCity={currentCity}
-        cities={cities}
       />
     );
   }

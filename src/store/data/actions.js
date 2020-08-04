@@ -17,9 +17,8 @@ export const Operation = {
   loadCities: () => (dispatch, getState, api) => {
     return api.get(`/hotels`)
       .then((response) => {
-         const adaptedCities = getAdaptedCities(response.data);
-         dispatch(ActionCreator.loadCities(adaptedCities));
-         console.log(adaptedCities);
+        const adaptedCities = response.data.map((offer) => getAdaptedCities(offer));
+        dispatch(ActionCreator.loadCities(adaptedCities));
       });
   },
 };

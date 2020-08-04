@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import Map from "Map/map.jsx";
-import {cities, offers, MapProps} from "Mocks/test-mocks";
+import {offers, MapProps} from "Mocks/test-mocks";
 
 const mockStore = configureStore([]);
 
@@ -19,7 +19,6 @@ it(`Map conponent renders correctly`, () => {
         <Map
           currentCity={`Amsterdam`}
           currentCardId={1}
-          cities={cities}
           offers={offers}
           width={WIDTH}
           height={HEIGHT}

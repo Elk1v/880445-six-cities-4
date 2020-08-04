@@ -4,7 +4,8 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import Main from "Main/main.jsx";
-import {cities, offers} from "Mocks/test-mocks";
+import {cities, offers, cityElements} from "Mocks/test-mocks";
+
 
 const mockStore = configureStore([]);
 
@@ -23,6 +24,7 @@ it(`Should Main component render correctly`, () => {
             isLoaded={true}
             currentCity={`Amsterdam`}
             cities={cities}
+            citiesNameList={cityElements}
             offers={offers}
             onCityTitleClick={() => {}}
             onCardTitleClick={() => {}}

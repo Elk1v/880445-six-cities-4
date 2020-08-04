@@ -1,5 +1,5 @@
 import {extend} from "Utils/common";
-import  {ActionType} from "./actions";
+import {ActionType} from "./actions";
 
 const initialState = {
   cities: [],
@@ -14,4 +14,4 @@ export const reducer = (state = initialState, action) => {
   }
 
   return state;
-}
+};

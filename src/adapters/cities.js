@@ -1,7 +1,5 @@
-
-
-export const getAdaptedCities = (offers) => {
-  return offers.map((offer) =>({
+export const getAdaptedCities = (offer) => {
+  return {
     city: offer.city.name,
     id: offer.id,
     center: [offer.city.location.latitude, offer.city.location.longitude],
@@ -23,5 +21,5 @@ export const getAdaptedCities = (offers) => {
       text: [offer.description],
     },
     coords: [offer.location.latitude, offer.location.longitude],
-  }));
+  };
 };

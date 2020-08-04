@@ -33,7 +33,7 @@ export const Operation = {
       password: authData.password,
     })
       .then(() => {
-        dispatch(ActionCreator.requireAuthorization((AuthorizationStatus.AUTH)))
+        dispatch(ActionCreator.requireAuthorization((AuthorizationStatus.AUTH)));
       });
   },
-}
+};

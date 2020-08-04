@@ -7,7 +7,7 @@ import {MapProps} from "Consts/consts";
 import {calcRatingInPercent} from "Utils/common";
 
 const Property = (props) => {
-  const {offer, nearbyOffers, currentCity, cities} = props;
+  const {offer, nearbyOffers, currentCity} = props;
   const {id, title, features, rating, isPremium, price, images, inside, host, reviews} = offer;
   const {type, bedrooms, adults} = features;
   const {name, avatar, text} = host;
@@ -155,7 +155,6 @@ const Property = (props) => {
                 width={WIDTH}
                 height={HEIGHT}
                 currentCity={currentCity}
-                cities={cities}
               />
             </section>
           </section>

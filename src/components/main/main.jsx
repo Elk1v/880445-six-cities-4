@@ -13,7 +13,6 @@ const SorterWrapped = withSort(Sort);
 class Main extends PureComponent {
   render() {
     const {
-      cities,
       citiesNameList,
       offers,
       currentCity,
@@ -23,6 +22,7 @@ class Main extends PureComponent {
       currentSort,
       onSortChange
     } = this.props;
+
     const {MAIN_RESOLUTION} = MapProps;
     const {WIDTH, HEIGHT} = MAIN_RESOLUTION;
     const offersCount = offers.length;
@@ -85,7 +85,6 @@ class Main extends PureComponent {
                   <Map
                     currentCity={currentCity}
                     currentCardId={currentCardId}
-                    cities={cities}
                     offers={offers}
                     width={WIDTH}
                     height={HEIGHT}

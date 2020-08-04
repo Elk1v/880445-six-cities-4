@@ -1,7 +1,5 @@
 import {extend} from "Utils/common";
 import {ActionType} from "./actions";
-import makeGetCitiesNameList from "Store/selectors/make-get-cities-name-list";
-
 
 const initialState = {
   currentCity: `Amsterdam`,

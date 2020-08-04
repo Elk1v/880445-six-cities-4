@@ -4,7 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import PlacesList from "PlacesList/places-list";
-import {offers} from "Mocks/test-mocks";
+import {offers, cityElements} from "Mocks/test-mocks";
 
 const mockStore = configureStore([]);
 
@@ -18,6 +18,7 @@ it(`Should PlaceList component render correcrly`, () => {
         <Provider store={store}>
           <PlacesList
             offers={offers}
+            citiesNameList={cityElements}
             onCardTitleClick={() => {}}
           />
         </Provider>

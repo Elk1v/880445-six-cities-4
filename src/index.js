@@ -5,9 +5,8 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import App from "App/app.jsx";
-import cities from "Mocks/cities";
 import {Operation as DataOperation} from "Store/data/actions";
-import {Operation as UserOperation, ActionCreator, AuthorizationStatus} from "Store/user/actions";
+import {/* Operation as UserOperation,*/ActionCreator, AuthorizationStatus} from "Store/user/actions";
 import {createAPI} from "./api";
 import reducer from "Store/reducers";
 
@@ -19,9 +18,9 @@ const api = createAPI(onUnauthorized);
 
 const store = createStore(
     reducer,
-  composeWithDevTools(
-    applyMiddleware(thunk.withExtraArgument(api))
-  )
+    composeWithDevTools(
+        applyMiddleware(thunk.withExtraArgument(api))
+    )
 );
 
 store.dispatch(DataOperation.loadCities());
