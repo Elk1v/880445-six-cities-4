@@ -2,7 +2,7 @@ import MockAdapter from "axios-mock-adapter";
 import {createAPI} from "../../api";
 import {reducer} from "./reducer";
 import {ActionType, Operation} from "./actions";
-import {serverOffers} from "Mocks/test-mocks";
+import {serverOffers, adaptedOffers} from "Mocks/test-mocks";
 
 const cities = serverOffers;
 
@@ -50,14 +50,14 @@ describe(`Operation work correctly`, () => {
 
     apiMock
       .onGet(`/hotels`)
-      .reply(200, [{fake: true}]);
+      .reply(200, cities);
 
     return cityLoader(dispatch, () => {}, api)
       .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_CITIES,
-          payload: [{fake: true}],
+          payload: adaptedOffers,
         });
       });
   });

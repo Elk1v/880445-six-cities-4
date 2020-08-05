@@ -467,7 +467,7 @@ exports[`Should Property component render correctly 1`] = `
                     </p>
                     <time
                       className="reviews__time"
-                      dateTime="2020-08-04"
+                      dateTime="2020-08-05"
                     >
                       August 2020
                     </time>

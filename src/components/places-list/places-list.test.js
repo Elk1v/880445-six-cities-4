@@ -5,12 +5,15 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import PlacesList from "PlacesList/places-list";
 import {offers, cityElements} from "Mocks/test-mocks";
+import NameSpace from "Store/name-space";
 
 const mockStore = configureStore([]);
 
 it(`Should PlaceList component render correcrly`, () => {
   const store = mockStore({
-    currentCardId: 0,
+    [NameSpace.APP]: {
+      currentCardId: 0,
+    }
   });
 
   const tree = renderer.create(
