@@ -2,17 +2,19 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
-import {ActionCreator} from "Store/actions";
-import makeGetSortedOffers from "Store/selectors/make-get-sorted-offers.js";
-import makeGetNearbyOffers from "Store/selectors/make-get-nearbyoffers.js";
+import {ActionCreator} from "Store/app/actions";
+import makeGetSortedOffers from "Store/selectors/make-get-sorted-offers";
+import makeGetNearbyOffers from "Store/selectors/make-get-nearbyoffers";
+import makeGetCitiesNameList from "Store/selectors/make-get-cities-name-list";
+import {getCurrentCardId} from "Store/selectors/get-current-card-id";
+import {getCurrentCity} from "Store/selectors/get-current-city";
+import {getCurrentSort} from "Store/selectors/get-current-sort";
 import Main from "Main/main.jsx";
 import Property from "Property/property.jsx";
 
 class App extends PureComponent {
   _renderMain() {
     const {
-      isLoaded,
-      cities,
       onCardTitleClick,
       onCityTitleClick,
       onSortChange,
@@ -20,12 +22,12 @@ class App extends PureComponent {
       offers,
       currentSort,
       currentCardId,
+      citiesNameList,
     } = this.props;
 
     return (
       <Main
-        isLoaded={isLoaded}
-        cities={cities}
+        citiesNameList={citiesNameList}
         offers={offers}
         currentCity={currentCity}
         currentSort={currentSort}
@@ -38,13 +40,12 @@ class App extends PureComponent {
   }
 
   _renderProperty(cardId) {
-    const {currentCity, cities, offers, nearbyOffers} = this.props;
+    const {currentCity, offers, nearbyOffers} = this.props;
     return (
       <Property
         offer={this._getPropertyOfferBy(offers, cardId)}
         nearbyOffers={nearbyOffers}
         currentCity={currentCity}
-        cities={cities}
       />
     );
   }
@@ -72,8 +73,7 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  isLoaded: PropTypes.bool.isRequired,
-  cities: PropTypes.array.isRequired,
+  citiesNameList: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onCityTitleClick: PropTypes.func.isRequired,
@@ -87,14 +87,15 @@ App.propTypes = {
 const makeMapStateToProps = () => {
   const getSortedOffers = makeGetSortedOffers();
   const getNearbyOffers = makeGetNearbyOffers();
+  const getCitiesNameList = makeGetCitiesNameList();
 
   return (state, props) => ({
-    isLoaded: state.isLoaded,
-    currentCity: state.currentCity,
-    currentCardId: state.currentCardId,
+    currentCity: getCurrentCity(state),
+    currentCardId: getCurrentCardId(state),
     offers: getSortedOffers(state, props),
     nearbyOffers: getNearbyOffers(state, props),
-    currentSort: state.currentSort,
+    currentSort: getCurrentSort(state),
+    citiesNameList: getCitiesNameList(state),
   });
 };
 

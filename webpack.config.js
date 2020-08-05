@@ -30,6 +30,7 @@ module.exports = {
   devtool: `source-map`,
   resolve: {
     alias: {
+      Adapters: path.resolve(__dirname, `src/adapters/`),
       Utils: path.resolve(__dirname, `src/utils/`),
       Mocks: path.resolve(__dirname, `src/mocks/`),
       Consts: path.resolve(__dirname, `src/consts/`),

@@ -13,8 +13,7 @@ const SorterWrapped = withSort(Sort);
 class Main extends PureComponent {
   render() {
     const {
-      isLoaded,
-      cities,
+      citiesNameList,
       offers,
       currentCity,
       onCardTitleClick,
@@ -23,11 +22,10 @@ class Main extends PureComponent {
       currentSort,
       onSortChange
     } = this.props;
+
     const {MAIN_RESOLUTION} = MapProps;
     const {WIDTH, HEIGHT} = MAIN_RESOLUTION;
     const offersCount = offers.length;
-    const cityElements = this._getCityElements(cities);
-
     return (
       <div className="page page--gray page--main">
         <header className="header">
@@ -54,14 +52,13 @@ class Main extends PureComponent {
         </header>
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          {isLoaded &&
           <div className="tabs">
             <CitiesList
-              cityElements={cityElements}
+              citiesNameList={citiesNameList}
               currentCity={currentCity}
               onCityTitleClick={onCityTitleClick}
             />
-          </div>}
+          </div>
           {offers.length === 0
             ? <Empty
               currentCity={currentCity}
@@ -88,7 +85,6 @@ class Main extends PureComponent {
                   <Map
                     currentCity={currentCity}
                     currentCardId={currentCardId}
-                    cities={cities}
                     offers={offers}
                     width={WIDTH}
                     height={HEIGHT}
@@ -96,35 +92,20 @@ class Main extends PureComponent {
                 </div>
               </div>
             </div>}
-
-          {isLoaded ||
-          <Empty/>
-          }
-          {/**/}
         </main>
       </div>
     );
   }
-
-  _getCityElements(cities) {
-    return cities.map((city) => {
-      return {
-        name: city.name,
-        id: city.id,
-      };
-    });
-  }
 }
 
 Main.propTypes = {
-  isLoaded: PropTypes.bool.isRequired,
   currentCity: PropTypes.string.isRequired,
+  citiesNameList: PropTypes.array.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onCityTitleClick: PropTypes.func.isRequired,
   onSortChange: PropTypes.func.isRequired,
   currentCardId: PropTypes.number.isRequired,
   currentSort: PropTypes.string.isRequired,
-  cities: PropTypes.array.isRequired,
   offers: PropTypes.array.isRequired,
 };
 

@@ -5,6 +5,7 @@
   "description": "Личный проект «Шесть городов» от HTML Academy",
   "scripts": {
     "eslint": "eslint --ext .jsx --ext .js src/",
+    "lint": "eslint --fix --ext .js,.jsx .",
     "test": "npm run eslint && npm run test.jest",
     "test.jest": "jest",
     "build": "webpack --mode production",
@@ -14,6 +15,7 @@
     "@babel/core": "7.10.2",
     "@babel/preset-env": "7.10.2",
     "@babel/preset-react": "7.10.1",
+    "axios-mock-adapter": "1.18.2",
     "babel-jest": "26.0.1",
     "babel-loader": "8.1.0",
     "enzyme": "3.11.0",
@@ -33,6 +35,7 @@
     "node": "10"
   },
   "dependencies": {
+    "axios": "0.19.2",
     "leaflet": "1.6.0",
     "moment": "^2.27.0",
     "prop-types": "15.7.2",
@@ -42,6 +45,8 @@
     "react-redux": "7.2.0",
     "react-router-dom": "5.2.0",
     "redux": "4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "2.3.0",
     "reselect": "^4.0.0",
     "styled-components": "5.1.1"
   },
@@ -61,6 +66,7 @@
       "^ReviewItem(.*)$": "<rootDir>src/components/review-item$1",
       "^Sort(.*)$": "<rootDir>src/components/sort$1",
       "^Components(.*)$": "<rootDir>/src/components$1",
+      "^Adapters(.*)$": "<rootDir>/src/adapters$1",
       "^Hocs(.*)$": "<rootDir>src/hocs$1",
       "^Utils(.*)$": "<rootDir>/src/utils$1",
       "^Mocks(.*)$": "<rootDir>/src/mocks$1",

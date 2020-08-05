@@ -1,20 +1,12 @@
 import {createSelector} from "reselect";
 import {SortTypes} from "Consts/consts";
+import {getCurrentSort} from "./get-current-sort";
+import makeGetGroupedOffersByCity from "./make-get-grouped-offers-by-city";
 
-const getCurrentSort = (state) => {
-  return state.currentSort;
-};
-
-const getOffersByCityToSort = (state, props) => {
-  const currentCity = state.currentCity;
-  const cities = props.cities;
-  const findCity = cities.find((city) =>(city.name === currentCity));
-  return findCity.offers;
-};
-
-const makeGetSortedOffers = () => {
+const makeGetSortedOffers = (state) => {
+  const getGroupedOffersByCity = makeGetGroupedOffersByCity(state);
   return createSelector(
-      [getCurrentSort, getOffersByCityToSort],
+      [getCurrentSort, getGroupedOffersByCity],
       (sortType, offers) => {
         switch (sortType) {
           case SortTypes.POPULAR:

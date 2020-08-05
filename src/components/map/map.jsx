@@ -48,14 +48,13 @@ class Map extends PureComponent {
   }
 
   _findCenter() {
-    const {cities, currentCity} = this.props;
-    const findCity = cities.find((city) => city.name === currentCity);
+    const {offers, currentCity} = this.props;
+    const findCity = offers.find((offer) => offer.city === currentCity);
     return findCity.center;
   }
 }
 
 Map.propTypes = {
-  cities: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   currentCardId: PropTypes.number,
   offers: PropTypes.array.isRequired,

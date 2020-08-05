@@ -1,4 +1,3 @@
-
 export const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   CHANGE_CARD_ID: `CHANGE_CARD_ID`,

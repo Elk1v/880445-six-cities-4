@@ -75,7 +75,7 @@ exports[`Cities list component renders correctly 1`] = `
         onClick={[Function]}
       >
         <span>
-          Duselldolf
+          Dusseldorf
         </span>
       </a>
     </li>

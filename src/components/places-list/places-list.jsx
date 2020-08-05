@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {ActionCreator} from "Store/actions";
+import {ActionCreator} from "Store/app/actions";
+import {getCurrentCardId} from "Store/selectors/get-current-card-id";
 import PropTypes from "prop-types";
 import PlaceCard from "PlaceCard/place-card.jsx";
 
@@ -35,7 +36,7 @@ PlacesList.propTypes = {
 
 const makeMapStateToProps = () => {
   return (state) => ({
-    currentCardId: state.currentCardId,
+    currentCardId: getCurrentCardId(state),
   });
 };
 

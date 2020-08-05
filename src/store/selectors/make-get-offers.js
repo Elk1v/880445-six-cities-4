@@ -1,20 +1,12 @@
 import {createSelector} from "reselect";
+import {getCurrentCity} from "./get-current-city";
 
-const getCurrentCity = (state) => {
-  return state.currentCity;
-};
-
-const getCities = (_, props) => { // props only (ignoring state argument)
-  return props.cities;
-};
+const getCities = (_, props) => (props.cities);
 
 const makeGetOffers = () => createSelector(
     [getCurrentCity, getCities],
     (currentCity, cities) => {
-      const findCity = cities.find((city) => {
-        return city.name === currentCity;
-      });
-
+      const findCity = cities.find((city) => (city.name === currentCity));
       return findCity.offers;
     }
 );

@@ -4,12 +4,15 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import CitiesList from "CitiesList/cities-list.jsx";
 import {cityElements} from "Mocks/test-mocks";
+import NameSpace from "Store/name-space";
 
 const mockStore = configureStore([]);
 
 it(`Cities list component renders correctly`, () => {
   const store = mockStore({
-    currentCity: `Amsterdam`,
+    [NameSpace.APP]: {
+      currentCity: `Amsterdam`,
+    }
   });
 
   const tree = renderer.create(
@@ -17,7 +20,7 @@ it(`Cities list component renders correctly`, () => {
         <CitiesList
           currentCity={`Amsterdam`}
           onCityTitleClick={() => {}}
-          cityElements={cityElements}
+          citiesNameList={cityElements}
         />
       </Provider>
   ).toJSON();
